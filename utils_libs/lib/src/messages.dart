@@ -79,7 +79,7 @@ class MESSAGES {
   static const String LOGIN_AGAIN = 'Vui lòng đăng nhập lại !!!';
   static const String BACK_TO_EXIT = 'Nhấn thêm lần nữa để thoát';
   static const String DEVELOPING = 'Tính năng bị khóa. Vui lòng liên hệ Quản trị viên để nâng cấp tài khoản! Cảm ơn bạn.';
-  static const String REGISTER_NOTIFICATION = 'Để là thành viên của app và sử dụng các tính năng đầy đủ xin liên hệ ban Quản Trị App. Kiến thức chung chuyên ngành thuế với phí 100.000 vnđ/ 12 tháng. Kiến thức chung chuyên ngành Kho bạc nhà Nước với phí 100.000 vnđ/ 12 tháng. Kiến thức Tiếng Anh với phí 100.000 vnđ/ 12 tháng. \nSĐT Hỗ trợ: (024)23.225.999 \n Zalo Hỗ trợ: 0902.183.658';
+  static const String REGISTER_NOTIFICATION = 'Để là thành viên của app và sử dụng các tính năng đầy đủ xin vui lòng liên hệ ban Quản Trị App.\nSĐT Hỗ trợ: (024)23.225.999 \n Zalo Hỗ trợ: 0902.183.658';
   static const String SEARCH = 'Tìm kiếm';
   static const String SEARCH_POST = 'Tìm kiếm bài viết';
   static const String TITLE = 'Tiêu đề';
@@ -116,6 +116,8 @@ class MESSAGES {
   static const String REVIEW_EXAM = 'Xem lại bài làm';
   static const String CONNECT_TIME_OUT = 'Hết thời gian kết nối. Vui lòng thử lại!';
   static const String CONNECT_ERROR = 'Có lỗi xảy ra. Vui lòng thử lại!';
+  static const String DEVICE_ERROR = 'Bạn đã đăng kí sử dụng tài khoản này trên thiết bị ';
+  static const String DEVICE_ERROR_SUB = 'Vui lòng sử dụng thiết bị cũ hoặc liên hệ Ban quản trị App\nSĐT Hỗ trợ: (024)23.225.999 \n Zalo Hỗ trợ: 0902.183.658';
   static const String TRY_AGAIN = 'Vui lòng thử lại sau!';
   static const String TRY = 'Thử lại';
 }

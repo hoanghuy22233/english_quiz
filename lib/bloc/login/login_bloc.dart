@@ -31,31 +31,43 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       final code = CodeUser.dirty(event.code);
       yield state.copyWith(
         code: code.valid ? code : CodeUser.pure(event.code),
-        status: Formz.validate([code, state.password]),
+        status: Formz.validate([code, state.password, state.deviceCode]),
       );
     } else if (event is PasswordChanged) {
       final password = Password.dirty(event.password);
       yield state.copyWith(
         password: password.valid ? password : Password.pure(event.password),
-        status: Formz.validate([state.code, password]),
+        status: Formz.validate([state.code, password, state.deviceCode]),
+      );
+    } else if (event is DeviceCodeChanged) {
+      final deviceCode = NotNull.dirty(event.deviceCode);
+      yield state.copyWith(
+        deviceCode: deviceCode.valid ? deviceCode : NotNull.pure(event.deviceCode),
+        status: Formz.validate([state.code, state.password, deviceCode]),
       );
     } else if (event is CodeUnfocused) {
       final code = CodeUser.dirty(state.code.value);
       yield state.copyWith(
         code: code,
-        status: Formz.validate([code, state.password]),
+        status: Formz.validate([code, state.password, state.deviceCode]),
       );
     } else if (event is PasswordUnfocused) {
       final password = Password.dirty(state.password.value);
       yield state.copyWith(
         password: password,
-        status: Formz.validate([state.code, password]),
+        status: Formz.validate([state.code, password, state.deviceCode]),
+      );
+    } else if (event is DeviceCodeUnfocused) {
+      final deviceCode = NotNull.dirty(state.deviceCode.value);
+      yield state.copyWith(
+        deviceCode: deviceCode,
+        status: Formz.validate([state.code, state.password, deviceCode]),
       );
     } else if (event is FormSubmitted) {
       try{
         if (state.status.isValidated) {
           yield state.copyWith(status: FormzStatus.submissionInProgress);
-          var response = await userRepository.loginApp(code: state.code.value, password: state.password.value);
+          var response = await userRepository.loginApp(code: state.code.value, password: state.password.value, deviceCode: state.deviceCode.value);
           if (response.status == BASE_URL.SUCCESS) {
             await localRepository.saveUser(jsonEncode(response));
             await shareLocal.putString(PreferencesKey.TOKEN, response.data.token);

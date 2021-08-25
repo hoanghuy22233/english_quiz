@@ -47,8 +47,8 @@ class UserRepository {
 
   //=========================================> POST <=========================================
 
-  Future<UserResponse> loginApp({required String code, required String password}) async =>
-      await RestClient(dio, baseUrl: dio.options.baseUrl).loginApp(LoginAppRequest(code: code, password: password));
+  Future<UserResponse> loginApp({required String code, required String password, required String deviceCode}) async =>
+      await RestClient(dio, baseUrl: dio.options.baseUrl).loginApp(LoginAppRequest(code: code, password: password, deviceCode: deviceCode));
 
   Future<ResponseStatus> changePassword({required ParamChangePassword paramChangePassword}) async =>
       await RestClient(dio, baseUrl: dio.options.baseUrl).changePassword(paramChangePassword);

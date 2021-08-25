@@ -63,7 +63,7 @@ class WidgetDialog extends StatelessWidget {
                 ),
                 twoButton == false ?
                 InkWell(
-                  onTap: onTap1!,
+                  onTap: onTap1 ?? ()=> AppNavigator.navigateBack(),
                   child: Container(
                     padding: EdgeInsets.only(top: 15.0, bottom: 15.0),
                     decoration: BoxDecoration(
@@ -84,7 +84,7 @@ class WidgetDialog extends StatelessWidget {
                   children: [
                     Expanded(
                       child: InkWell(
-                        onTap: onTap2,
+                        onTap: onTap2  ?? ()=> AppNavigator.navigateBack(),
                         child: Container(
                           padding: EdgeInsets.only(top: 15.0, bottom: 15.0),
                           decoration: BoxDecoration(
@@ -103,7 +103,7 @@ class WidgetDialog extends StatelessWidget {
                     ),
                     Expanded(
                       child: InkWell(
-                        onTap: onTap1!,
+                        onTap: onTap1 ?? ()=> AppNavigator.navigateBack(),
                         child: Container(
                           padding: EdgeInsets.only(top: 15.0, bottom: 15.0),
                           decoration: BoxDecoration(

@@ -26,41 +26,33 @@ class _NotificationDetailScreenState extends State<NotificationDetailScreen> {
               color: Colors.white,
               fontWeight: FontWeight.bold)),
         ),
-        body: SafeArea(
+        body: SingleChildScrollView(
           child: Container(
             color: COLORS.WHITE,
+            padding: EdgeInsets.all(10),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        AppValue.vSpaceSmall,
-                        Text(
-                          detailNotification.title,
-                          style: AppStyle.DEFAULT_MEDIUM_BOLD,
-                        ),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            AppValue.formatStringDate(detailNotification.createdAt) ?? DateTime.now().toString(),
-                            style: AppStyle.DEFAULT_SMALLs,
-                          ),
-                        ),
-                        AppValue.vSpaceSmall,
-                        MySeparator(
-                          color: COLORS.PRIMARY_COLOR,
-                        ),
-                        AppValue.vSpaceSmall,
-                        HtmlWidget(
-                          detailNotification.content,
-                        ),
-                      ],
-                    ),
-                  )
+                AppValue.vSpaceSmall,
+                Text(
+                  detailNotification.title,
+                  style: AppStyle.DEFAULT_MEDIUM_BOLD,
+                ),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    AppValue.formatStringDate(detailNotification.createdAt) ?? DateTime.now().toString(),
+                    style: AppStyle.DEFAULT_SMALLs,
+                  ),
+                ),
+                AppValue.vSpaceSmall,
+                MySeparator(
+                  color: COLORS.PRIMARY_COLOR,
+                ),
+                AppValue.vSpaceSmall,
+                HtmlWidget(
+                  detailNotification.content,
                 ),
               ],
             ),

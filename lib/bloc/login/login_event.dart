@@ -28,4 +28,15 @@ class PasswordChanged extends LoginEvent {
 
 class PasswordUnfocused extends LoginEvent {}
 
+class DeviceCodeChanged extends LoginEvent {
+  const DeviceCodeChanged({required this.deviceCode});
+
+  final String deviceCode;
+
+  @override
+  List<Object> get props => [deviceCode];
+}
+
+class DeviceCodeUnfocused extends LoginEvent {}
+
 class FormSubmitted extends LoginEvent {}
