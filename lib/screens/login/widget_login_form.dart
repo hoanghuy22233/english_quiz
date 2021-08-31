@@ -7,6 +7,7 @@ import 'package:device_info/device_info.dart';
 import 'package:english_quiz/bloc/blocs.dart';
 import 'package:english_quiz/widgets/widget_dialog_register.dart';
 import 'package:english_quiz/widgets/widgets.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:utils_libs/utils_libs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -215,12 +216,7 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
   _buildButtonRegister() {
     return   InkWell(
       onTap: (){
-        showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return WidgetDialogRegister();
-          },
-        );
+        _textMe();
       }
       ,
       child: WidgetContainerCenter(
@@ -279,5 +275,21 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
         );
       }
     );
+  }
+
+  _textMe() async {
+    // Android
+    const uri = 'sms:0902183658?body=Tôi%20muốn%20đăng%20ký';
+    if (await canLaunch(uri)) {
+      await launch(uri);
+    } else {
+      // iOS
+      const uri = 'sms:0902183658?body=Tôi%20muốn%20đăng%20ký';
+      if (await canLaunch(uri)) {
+        await launch(uri);
+      } else {
+        throw 'Could not launch $uri';
+      }
+    }
   }
 }

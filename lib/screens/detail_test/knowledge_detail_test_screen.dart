@@ -8,6 +8,7 @@ import 'package:english_quiz/widgets/widget_appbar_new.dart';
 import 'package:english_quiz/widgets/widget_count_down.dart';
 import 'package:english_quiz/widgets/widget_my_radio_group.dart';
 import 'package:english_quiz/widgets/widgets.dart';
+import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:html_unescape/html_unescape.dart';
@@ -101,6 +102,7 @@ class _KnowDetailTestScreenState extends State<KnowDetailTestScreen> with Ticker
                 body:  SingleChildScrollView(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Row(
                         children: <Widget>[
@@ -109,16 +111,36 @@ class _KnowDetailTestScreenState extends State<KnowDetailTestScreen> with Ticker
                             child: Text("${_currentIndex + 1}", style: AppStyle.DEFAULT_MEDIUM.copyWith(color: COLORS.WHITE),),
                           ),
                           SizedBox(width: 16.0),
+                          state.question[_currentIndex].content!=null?
                           Expanded(
+                            child:
+                            state.question[_currentIndex].title.length>=5?
+                            ExpandableText(
+                              HtmlUnescape().convert(
+                                  state.question[_currentIndex].title!)+ " " + HtmlUnescape().convert(
+                                  state.question[_currentIndex].content!),
+                              expandText: 'Xem thêm',
+                              collapseText: 'Thu gọn',
+                              maxLines: 5,
+                              linkColor: Colors.blue,
+                            )
+                       :ExpandableText(
+                              state.question[_currentIndex].content!,
+                              expandText: 'Xem thêm',
+                              collapseText: 'Thu gọn',
+                              maxLines: 5,
+                              linkColor: Colors.blue,
+                            ),
+                          ): Expanded(
                             child: Text(
                               HtmlUnescape().convert(
                                   state.question[_currentIndex].title!),
                               softWrap: true,
-                              style: MediaQuery.of(context).size.width > 800
-                                  ? _questionStyle.copyWith(fontSize: 30.0)
+                              style: MediaQuery.of(context).size.width > 800 ? _questionStyle.copyWith(fontSize: 30.0)
                                   : _questionStyle,
                             ),
                           ),
+
                         ],
                       ),
                       SizedBox(height: 60.0),

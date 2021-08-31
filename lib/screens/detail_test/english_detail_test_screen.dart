@@ -3,6 +3,7 @@ import 'package:english_quiz/bloc/result/result_bloc.dart';
 import 'package:english_quiz/screens/quiz/quiz_finished.dart';
 import 'package:english_quiz/widgets/widget_count_down.dart';
 import 'package:english_quiz/widgets/widget_my_radio_group.dart';
+import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:html_unescape/html_unescape.dart';
 import 'package:utils_libs/utils_libs.dart'; // ignore: import_of_legacy_library_into_null_safe
@@ -71,13 +72,6 @@ class _EnglishDetailTestScreenState extends State<EnglishDetailTestScreen>
                  options.add(question.answer);
                   options.shuffle();
                 }
-                // final List<String> answers = []
-                //   ..add(state.question[_currentIndex].answer)
-                //   ..addAll(state.question[_currentIndex].incorrectAnswers)
-                //   ..shuffle();
-
-
-
                 Future.delayed(Duration(seconds: 1800), () {
                   Navigator.of(context).pushReplacement(MaterialPageRoute(
                       builder: (_) => QuizFinishedPage(
@@ -107,6 +101,7 @@ class _EnglishDetailTestScreenState extends State<EnglishDetailTestScreen>
                     child: Container(
                       padding: const EdgeInsets.all(16.0),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Row(
                             children: <Widget>[
@@ -115,7 +110,27 @@ class _EnglishDetailTestScreenState extends State<EnglishDetailTestScreen>
                                 child: Text("${_currentIndex + 1}", style: AppStyle.DEFAULT_MEDIUM.copyWith(color: COLORS.WHITE),),
                               ),
                               SizedBox(width: 16.0),
+                              state.question[_currentIndex].content!=null?
                               Expanded(
+                                child:
+                                state.question[_currentIndex].title.length>=5?
+                                ExpandableText(
+                                  HtmlUnescape().convert(
+                                      state.question[_currentIndex].title!)+ " " + HtmlUnescape().convert(
+                                      state.question[_currentIndex].content!),
+                                  expandText: 'Xem thêm',
+                                  collapseText: 'Thu gọn',
+                                  maxLines: 5,
+                                  linkColor: Colors.blue,
+                                )
+                                    :ExpandableText(
+                                  state.question[_currentIndex].content!,
+                                  expandText: 'Xem thêm',
+                                  collapseText: 'Thu gọn',
+                                  maxLines: 5,
+                                  linkColor: Colors.blue,
+                                ),
+                              ): Expanded(
                                 child: Text(
                                   HtmlUnescape().convert(
                                       state.question[_currentIndex].title!),
@@ -124,6 +139,7 @@ class _EnglishDetailTestScreenState extends State<EnglishDetailTestScreen>
                                       : _questionStyle,
                                 ),
                               ),
+
                             ],
                           ),
                           SizedBox(height: 60.0),
@@ -383,4 +399,6 @@ class _EnglishDetailTestScreenState extends State<EnglishDetailTestScreen>
         ) ??
         false;
   }
+
+
 }

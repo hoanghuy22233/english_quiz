@@ -8,7 +8,8 @@ part 'info_user.g.dart';
 class InfoUser extends Equatable {
   @JsonKey(name: "status")
   int statusUser;
-  int id, gender, type;
+  int id, gender;
+  List<dynamic> type;
   String name, code, otp, phone, image, address, email;
   @JsonKey(name: "device_code")
   String deviceCode;

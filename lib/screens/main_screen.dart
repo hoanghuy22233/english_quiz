@@ -161,7 +161,7 @@ class _MainScreenState extends State<MainScreen> {
       width: MediaQuery.of(context).size.width/1.5,
       height: 60,
       onTap: (){
-        if(infoUser.type == 1)
+        if(infoUser.type[0] ==1)
           showDialog(
             context: context,
             builder: (BuildContext context) {
@@ -179,7 +179,7 @@ class _MainScreenState extends State<MainScreen> {
           SizedBox(width: 10,),
           Text(MESSAGES.KNOWLEDGE,style: AppStyle.DEFAULT_MEDIUM.copyWith(color: COLORS.PRIMARY_COLOR,fontSize: 16, fontWeight: FontWeight.bold)),
           SizedBox(width: 10,),
-          infoUser.type == 1 ? WidgetContainerImage(image: ICONS.LOCK_ICON, height: 20, width: 20,) : Container()
+          infoUser.type[0] ==1 ? WidgetContainerImage(image: ICONS.LOCK_ICON, height: 20, width: 20,) : Container()
         ],
       ),
     );
@@ -189,7 +189,7 @@ class _MainScreenState extends State<MainScreen> {
       width: MediaQuery.of(context).size.width/1.5,
       height: 60,
       onTap: (){
-        if(infoUser.type == 3)
+        if(infoUser.type[2]==3)
           showDialog(
             context: context,
             builder: (BuildContext context) {
@@ -207,7 +207,7 @@ class _MainScreenState extends State<MainScreen> {
           SizedBox(width: 10,),
           Text(MESSAGES.KNOWLEDGE2,style: AppStyle.DEFAULT_MEDIUM.copyWith(color: COLORS.PRIMARY_COLOR,fontSize: 16, fontWeight: FontWeight.bold)),
           SizedBox(width: 10,),
-          infoUser.type == 3 ? WidgetContainerImage(image: ICONS.LOCK_ICON, height: 20, width: 20,) : Container()
+          infoUser.type[2]==3 ? WidgetContainerImage(image: ICONS.LOCK_ICON, height: 20, width: 20,) : Container()
         ],
       ),
     );
@@ -217,7 +217,7 @@ class _MainScreenState extends State<MainScreen> {
       width: MediaQuery.of(context).size.width/1.5,
       height: 60,
       onTap: (){
-        if(infoUser.type == 2)
+        if(infoUser.type[1]==2)
           showDialog(
             context: context,
             builder: (BuildContext context) {
@@ -235,7 +235,7 @@ class _MainScreenState extends State<MainScreen> {
           SizedBox(width: 10,),
           Text(MESSAGES.ENGLISH,style: AppStyle.DEFAULT_MEDIUM.copyWith(color: COLORS.PRIMARY_COLOR,fontSize: 16, fontWeight: FontWeight.bold)),
           SizedBox(width: 10,),
-          infoUser.type == 2 ? WidgetContainerImage(image: ICONS.LOCK_ICON, height: 20, width: 20,) : Container()
+          infoUser.type[1]==2 ? WidgetContainerImage(image: ICONS.LOCK_ICON, height: 20, width: 20,) : Container()
         ],
       ),
     );

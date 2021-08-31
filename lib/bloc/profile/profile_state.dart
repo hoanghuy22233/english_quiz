@@ -7,7 +7,7 @@ class ProfileState extends Equatable {
         statusUser: 1,
         id: 1,
         gender: 1,
-        type: 1,
+        type: null,
         name: null,
         code: null,
         otp: null,

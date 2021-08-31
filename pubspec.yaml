@@ -47,6 +47,7 @@ dependencies:
   auto_size_text: ^2.1.0
   quiver: ^3.0.1
   flutter_widget_from_html_core: ^0.6.2
+  expandable_text: ^2.2.0
 
 #dependency_overrides:
 #  sqflite: 2.0.0+3
