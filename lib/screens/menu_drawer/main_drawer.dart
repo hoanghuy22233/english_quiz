@@ -1,8 +1,9 @@
-// ignore: import_of_legacy_library_into_null_safe
 import 'package:english_quiz/bloc/authen/authentication_bloc.dart';
+import 'package:english_quiz/bloc/blocs.dart';
 import 'package:english_quiz/widgets/widgets.dart';
 import 'package:english_quiz/screens/screens.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:utils_libs/utils_libs.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
@@ -11,9 +12,8 @@ import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv; // ignore: import
 
 class MainDrawer extends StatelessWidget {
   final Function? onPress;
-  final InfoUser infoUser;
 
-  const MainDrawer({this.onPress, required this.infoUser});
+  const MainDrawer({this.onPress});
 
   @override
   Widget build(BuildContext context) {
@@ -63,64 +63,77 @@ class MainDrawer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              height: 140,
-              width: AppValue.widths,
-              padding: EdgeInsets.only(left: 15, top: 10),
-              decoration: BoxDecoration(
-                  color: COLORS.PRIMARY_COLOR
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  WidgetAvatar(url: infoUser.image ?? ''),
-                  AppValue.vSpaceTiny,
-                  Container(
-                    height: 20,
-                    child: Text(
-                      '${MESSAGES.HELLO} ${infoUser.name.length > 20 ? '${infoUser.name.substring(0, 20)} ...' :  infoUser.name}',
-                      softWrap: false,
-                      overflow: TextOverflow.fade,
-                      style: AppStyle.DEFAULT_MEDIUM_BOLD.copyWith(color: COLORS.WHITE),
-                    ),
-                  ),
-                  Container(
-                    height: 20,
-                    child: Text(
-                      infoUser.email,
-                      overflow: TextOverflow.fade,
-                      softWrap: false,
-                      style: AppStyle.DEFAULT_SMALLs.copyWith(color: COLORS.WHITE),
-                    ),
-                  )
-                ],
-              ),
+            BlocBuilder<InfoUserBloc, InfoUserState>(
+                bloc: InfoUserBloc.of(context)..add(InitDataEvent())..add(AddDataEvent()),
+                builder: (context, state) {
+                  if (state is UpdateInfoUserState) {
+                    return Container(
+                      height: 140,
+                      width: AppValue.widths,
+                      padding: EdgeInsets.only(left: 15, top: 10),
+                      decoration: BoxDecoration(
+                          color: COLORS.PRIMARY_COLOR
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          WidgetAvatar(url: state.infoUser.image ?? ''),
+                          AppValue.vSpaceTiny,
+                          Container(
+                            height: 20,
+                            child: Text(
+                              '${MESSAGES.HELLO} ${state.infoUser.name.substring(0, 20)}',
+                              softWrap: false,
+                              textAlign: TextAlign.justify,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: AppStyle.DEFAULT_MEDIUM_BOLD.copyWith(color: COLORS.WHITE),
+                            ),
+                          ),
+                          Container(
+                            height: 20,
+                            child: Text(
+                              state.infoUser.email,
+                              overflow: TextOverflow.fade,
+                              softWrap: false,
+                              style: AppStyle.DEFAULT_SMALLs.copyWith(color: COLORS.WHITE),
+                            ),
+                          )
+                        ],
+                      ),
+                    );
+                  } else {
+                    return Center(
+                      child: TrailLoading(height: 150, width: 150),
+                    );
+                  }
+                }
             ),
             Expanded(
-              child: GroupedListView<dynamic, String>(
-                //elements: Handle.isArraysObject(_elements, state.role == 1 ? false : true),//check admin permission
-                elements: _elements,//check admin permission
-                groupBy: (element) => element['group'],
-                groupSeparatorBuilder: (String value) =>
-                    WidgetLineContainer(),
-                itemBuilder: (c, element) => Padding(
-                  padding: const EdgeInsets.only(left: 15.0, top: 7.0),
-                  child: !element['isAdmin']
-                      ? Column(
-                          children: [
-                            InkWell(
-                              onTap: () => onPress!(element),
-                              child: WidgetItemListMenu(
-                                icon: element['image'],
-                                title: element['title'],
-                              ),
-                            ),
-                            AppValue.vSpaceSmall,
-                          ],
-                  )
-                      : Container(),
-                ),
-              )
+                child: GroupedListView<dynamic, String>(
+                  //elements: Handle.isArraysObject(_elements, state.role == 1 ? false : true),//check admin permission
+                  elements: _elements,//check admin permission
+                  groupBy: (element) => element['group'],
+                  groupSeparatorBuilder: (String value) =>
+                      WidgetLineContainer(),
+                  itemBuilder: (c, element) => Padding(
+                    padding: const EdgeInsets.only(left: 15.0, top: 7.0),
+                    child: !element['isAdmin']
+                        ? Column(
+                      children: [
+                        InkWell(
+                          onTap: () => onPress!(element),
+                          child: WidgetItemListMenu(
+                            icon: element['image'],
+                            title: element['title'],
+                          ),
+                        ),
+                        AppValue.vSpaceSmall,
+                      ],
+                    )
+                        : Container(),
+                  ),
+                )
             ),
             AppValue.vSpaceTiny,
             Center(

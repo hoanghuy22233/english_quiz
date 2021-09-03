@@ -13,7 +13,7 @@ abstract class RestClient {
   // =================================> GET <===================================
 
   @GET(BASE_URL.GET_INFO_USER)
-  Future<ResponseStatus> getInfoUser();
+  Future<ResponseDataStatus> getInfoUser();
 
   @GET(BASE_URL.THEORY)
   Future<ResponseTheoryStatus> getTheory(@Query('type') int type);
@@ -47,19 +47,19 @@ abstract class RestClient {
   Future<UserResponse> loginApp(@Body() LoginAppRequest loginAppRequest);
 
   @POST(BASE_URL.CHANGE_PASSWORD)
-  Future<ResponseStatus> changePassword(@Body() ParamChangePassword paramChangePassword);
+  Future<ResponseDataStatus> changePassword(@Body() ParamChangePassword paramChangePassword);
 
   @POST(BASE_URL.FORGOT_PASSWORD)
-  Future<ResponseStatus> forgotPassword(@Body() ParamForgotPassword paramForgotPassword);
+  Future<ResponseDataStatus> forgotPassword(@Body() ParamForgotPassword paramForgotPassword);
 
   @POST(BASE_URL.RESET_PASSWORD)
-  Future<ResponseStatus> resetPassword(@Body() ParamResetPassword paramResetPassword);
+  Future<ResponseDataStatus> resetPassword(@Body() ParamResetPassword paramResetPassword);
 
   @POST(BASE_URL.PROFILE)
-  Future<ResponseStatus> postUpdateProfile(@Body() InfoUser infoUser);
+  Future<ResponseDataStatus> postUpdateProfile(@Body() InfoUser infoUser);
 
   @POST(BASE_URL.PROFILE)
-  Future<ResponseDataStatus> postImages({@Part() File image, @Query('code') String code, @Query('type') List<dynamic> type, @Query('email') String email, @Query('name') String name});
+  Future<ResponseDataStatus> postImages({@Part() File image, @Query('code') String code, @Query('email') String email, @Query('name') String name});
 
   @POST(BASE_URL.SEEN_UPDATE + "/{id}")
   Future<NotificationSeenResponseStatus> seenNotification(@Path("id") int id);

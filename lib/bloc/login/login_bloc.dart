@@ -1,4 +1,3 @@
-// ignore: import_of_legacy_library_into_null_safe
 import 'package:utils_libs/utils_libs.dart';
 import 'dart:async';
 import 'dart:convert';
@@ -73,7 +72,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
             await shareLocal.putString(PreferencesKey.TOKEN, response.data.token);
             await shareLocal.putString(PreferencesKey.USER_CODE, response.data.user.code);
             await shareLocal.putString(PreferencesKey.USER_EMAIL, response.data.user.email);
-            await shareLocal.putInt(PreferencesKey.USER_TYPE, response.data.user.type.length);
             yield state.copyWith(status: FormzStatus.submissionSuccess, message: response.message);
           } else {
             yield state.copyWith(status: FormzStatus.submissionFailure, message: response.message);

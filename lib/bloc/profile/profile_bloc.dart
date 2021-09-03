@@ -1,4 +1,3 @@
-// ignore: import_of_legacy_library_into_null_safe
 import 'package:english_quiz/storages/share_local.dart';
 import 'package:utils_libs/utils_libs.dart';
 import 'dart:async';
@@ -20,15 +19,15 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
 
   ProfileBloc(
       {this.blocInfoSubscription,
-      required this.blocInfo,
-      UserRepository? userRepository})
+        required this.blocInfo,
+        UserRepository? userRepository})
       : _userRepository = userRepository,
         super(ProfileState.initial()) {
-          void onTodoStateChanged(state) {
-            if (state is UpdateInfoUserState) {
-              add(UpdateProfileEvent(infoUser: state.infoUser));
-            }
-          }
+    void onTodoStateChanged(state) {
+      if (state is UpdateInfoUserState) {
+        add(UpdateProfileEvent(infoUser: state.infoUser));
+      }
+    }
 
     onTodoStateChanged(blocInfo.state);
     blocInfoSubscription = blocInfo.stream.listen(onTodoStateChanged);
@@ -40,7 +39,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       yield state.copyWith(infoUser: event.infoUser);
     } else if (event is ProfileChangedFullName) {
       yield state.copyWith(infoUser: state.infoUser!.copyWith(name: event.fullName));
-     } else if (event is ProfileChangedGender) {
+    } else if (event is ProfileChangedGender) {
       yield state.copyWith(infoUser: state.infoUser!.copyWith(gender: event.gender));
     } else if (event is ProfileChangedPhone) {
       yield state.copyWith(infoUser: state.infoUser!.copyWith(phone: event.phone));
@@ -53,14 +52,13 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         final type = state.infoUser!.type;
         final name = state.infoUser!.name;
 
-        final response = await _userRepository!.postImage(file: event.avatar, code: code, type: type, email: email, name: name);
+        final response = await _userRepository!.postImage(file: event.avatar, code: code, email: email, name: name);
 
         if (response.status == BASE_URL.SUCCESS) {
           yield state.copyWith(isLoading: false);
           await GetSnackBarUtils.createSuccess(message: response.message);
           await shareLocal.putString(PreferencesKey.USER_CODE, response.data.user.code);
           await shareLocal.putString(PreferencesKey.USER_EMAIL, response.data.user.email);
-          await shareLocal.putInt(PreferencesKey.USER_TYPE, int.parse(response.data.user.type));
           blocInfo.add(InitDataEvent());
           blocInfo.add(AddDataEvent());
         } else {

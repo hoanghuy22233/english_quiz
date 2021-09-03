@@ -33,7 +33,7 @@ class ResponseDataStatus {
 
 @JsonSerializable()
 class Data {
-  final InfoUserPostImage user;
+  final InfoUser user;
 
   const Data({this.user});
 

@@ -1,4 +1,3 @@
-// ignore: import_of_legacy_library_into_null_safe
 import 'package:english_quiz/bloc/Statistics/statistics_bloc.dart';
 import 'package:english_quiz/bloc/blocs.dart';
 import 'package:english_quiz/bloc/test/test_bloc.dart';
@@ -41,144 +40,153 @@ class _StatisticalScreenState extends State<StatisticalScreen> {
               color: Colors.white,
               fontWeight: FontWeight.bold)),
         ),
-      body: SafeArea(
-        child:  BlocBuilder<StatisticsBloc, StatisticsState>(
-          builder: (context, state){
-            if(state is UpdateStatisticsState){
-              var item = state.test.length;
-              return Column(
-                children: [
-                  Expanded(
-                    child: RefreshIndicator(
-                      onRefresh: () async {
-                        StatisticsBloc.of(context)..add(InitStatisticsEvent());
-                        await Future.delayed(Duration(seconds: 2));
-                      },
-                      color: COLORS.WHITE,
-                      backgroundColor: COLORS.PRIMARY_COLOR,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          BlocBuilder<InfoUserBloc, InfoUserState>(
-                            bloc: InfoUserBloc.of(context)..add(InitDataEvent()),
-                            builder: (context, state) {
-                              if (state is UpdateInfoUserState) {
-                                final user = state.infoUser;
-                                return  Container(
-                                  height: 130,
-                                  padding: EdgeInsets.symmetric(horizontal: 10),
-                                  color: COLORS.WHITE,
-                                  child: Card(
-                                    elevation: 2,
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          padding: EdgeInsets.symmetric(vertical: 10),
-                                          child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.center,
-                                            children: [
-                                              WidgetAvatar(
-                                                  url: state.infoUser.image
-                                              ),
-                                              AppValue.vSpaceTiny,
-                                              Container(
-                                                height: 20,
-                                                child: Text(
-                                                  MESSAGES.HELLO + state.infoUser.name.toLowerCase(),
-                                                  softWrap: false,
-                                                  overflow: TextOverflow.fade,
-                                                  style: AppStyle.DEFAULT_MEDIUM_BOLD,
+        body: SafeArea(
+            child:  BlocBuilder<StatisticsBloc, StatisticsState>(
+              builder: (context, state){
+                if(state is UpdateStatisticsState){
+                  var item = state.test.length;
+                  return Column(
+                    children: [
+                      Expanded(
+                        child: RefreshIndicator(
+                          onRefresh: () async {
+                            StatisticsBloc.of(context)..add(InitStatisticsEvent());
+                            await Future.delayed(Duration(seconds: 2));
+                          },
+                          color: COLORS.WHITE,
+                          backgroundColor: COLORS.PRIMARY_COLOR,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              BlocBuilder<InfoUserBloc, InfoUserState>(
+                                bloc: InfoUserBloc.of(context)..add(InitDataEvent()),
+                                builder: (context, state) {
+                                  if (state is UpdateInfoUserState) {
+                                    final user = state.infoUser;
+                                    return  Container(
+                                      height: 170,
+                                      padding: EdgeInsets.all(10),
+                                      color: COLORS.WHITE,
+                                      child: Card(
+                                        elevation: 2,
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          children: [
+                                            Expanded(
+                                              flex: 4,
+                                              child: Container(
+                                                padding: EdgeInsets.symmetric(vertical: 10),
+                                                child: Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                  children: [
+                                                    WidgetAvatar(
+                                                        url: state.infoUser.image
+                                                    ),
+                                                    AppValue.vSpaceTiny,
+                                                    Text(
+                                                      MESSAGES.HELLO,
+                                                      softWrap: false,
+                                                      overflow: TextOverflow.fade,
+                                                      style: AppStyle.DEFAULT_MEDIUM,
+                                                    ),
+                                                    AppValue.vSpaceTiny,
+                                                    Text(
+                                                      state.infoUser.name.toLowerCase(),
+                                                      softWrap: false,
+                                                      overflow: TextOverflow.fade,
+                                                      style: AppStyle.DEFAULT_SMALLs,
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
-                                            ],
-                                          ),
+                                            ),
+                                            Expanded(
+                                                flex: 2,
+                                                child: WidgetItemStatistical(title: MESSAGES.NUMBER_EXAM, number: item,))
+                                          ],
                                         ),
-                                        WidgetItemStatistical(title: MESSAGES.NUMBER_EXAM, number: item,)
-                                      ],
+                                      ),
+                                    );
+                                  }
+                                  else {
+                                    return Center(
+                                      child: TrailLoading(height: 100, width: 100),
+                                    );
+                                  }
+                                },
+                              ),
+
+                              AppValue.vSpaceSmall,
+                              Expanded(child: ListView.separated(
+                                padding: const EdgeInsets.fromLTRB(0, 8.0, 0, 0),
+                                itemCount: state.test.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return InkWell(
+                                    onTap: (){
+
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => StatisticalResultItem(id:state.test[index].id),
+                                          ));
+
+                                    },
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(horizontal: 10),
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                            flex: 2,
+                                            child: Card(
+                                              color: Colors.white,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.circular(5.0),),
+                                              elevation: 2,
+                                              child: Container(
+                                                // color: Colors.white,
+                                                  child: Image.asset(IMAGES.LOGO_APP, height: 60, width: 60,)),
+                                            ),
+                                          ),
+                                          Expanded(
+                                            flex: 8,
+                                            child: Card(
+                                              color: Colors.white,
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius.circular(5.0)),
+                                              elevation: 2,
+                                              child: Container(
+                                                // color: Colors.white,
+                                                  width: MediaQuery.of(context).size.width,
+                                                  padding: EdgeInsets.all(22),
+                                                  child: Text(state.test[index].title, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)),
+                                            ),
+                                          )
+
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                );
-                              }
-                              else {
-                                return Center(
-                                  child: TrailLoading(height: 100, width: 100),
-                                );
-                              }
-                            },
+                                  );
+                                },
+                                separatorBuilder: (BuildContext context, int index) => AppValue.vSpace(12),
+                              ))
+                            ],
                           ),
-
-                          AppValue.vSpaceSmall,
-                         Expanded(child: ListView.separated(
-                           padding: const EdgeInsets.fromLTRB(0, 8.0, 0, 0),
-                           itemCount: state.test.length,
-                           itemBuilder: (BuildContext context, int index) {
-                             return InkWell(
-                               onTap: (){
-
-                                 Navigator.push(
-                                     context,
-                                     MaterialPageRoute(
-                                       builder: (context) => StatisticalResultItem(id:state.test[index].id),
-                                     ));
-
-                               },
-                               child: Container(
-                                 padding: EdgeInsets.symmetric(horizontal: 10),
-                                 child: Row(
-                                   children: [
-                                     Expanded(
-                                       flex: 2,
-                                       child: Card(
-                                         color: Colors.white,
-                                         shape: RoundedRectangleBorder(
-                                           borderRadius: BorderRadius.circular(5.0),),
-                                         elevation: 2,
-                                         child: Container(
-                                           // color: Colors.white,
-                                             child: Image.asset(IMAGES.LOGO_APP, height: 60, width: 60,)),
-                                       ),
-                                     ),
-                                     Expanded(
-                                       flex: 8,
-                                       child: Card(
-                                         color: Colors.white,
-                                         shape: RoundedRectangleBorder(
-                                             borderRadius: BorderRadius.circular(5.0)),
-                                         elevation: 2,
-                                         child: Container(
-                                           // color: Colors.white,
-                                             width: MediaQuery.of(context).size.width,
-                                             padding: EdgeInsets.all(22),
-                                             child: Text(state.test[index].title, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)),
-                                       ),
-                                     )
-
-                                   ],
-                                 ),
-                               ),
-                             );
-                           },
-                           separatorBuilder: (BuildContext context, int index) => AppValue.vSpace(12),
-                         ))
-                        ],
+                        ),
                       ),
-                    ),
-                  ),
-                ],
-              );
-            }else {
-              return Center(
-                child: TrailLoading(height: 100, width: 100),
-              );
-            }
-          },
+                    ],
+                  );
+                }else {
+                  return Center(
+                    child: TrailLoading(height: 100, width: 100),
+                  );
+                }
+              },
+            )
+
+
+
         )
-
-
-
-      )
     );
   }
 }

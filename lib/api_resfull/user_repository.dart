@@ -24,7 +24,7 @@ class UserRepository {
 
   //==========================================> GET <=========================================
 
-  Future<ResponseStatus> getInfoUser() async => await RestClient(dio, baseUrl: dio.options.baseUrl).getInfoUser();
+  Future<ResponseDataStatus> getInfoUser() async => await RestClient(dio, baseUrl: dio.options.baseUrl).getInfoUser();
 
   Future<ResponseTheoryStatus> getTheory({required int type}) async => await RestClient(dio, baseUrl: dio.options.baseUrl).getTheory(type);
   Future<ResponseTests> getTest({required int type}) async => await RestClient(dio, baseUrl: dio.options.baseUrl).getTest(type);
@@ -50,20 +50,20 @@ class UserRepository {
   Future<UserResponse> loginApp({required String code, required String password, required String deviceCode}) async =>
       await RestClient(dio, baseUrl: dio.options.baseUrl).loginApp(LoginAppRequest(code: code, password: password, deviceCode: deviceCode));
 
-  Future<ResponseStatus> changePassword({required ParamChangePassword paramChangePassword}) async =>
+  Future<ResponseDataStatus> changePassword({required ParamChangePassword paramChangePassword}) async =>
       await RestClient(dio, baseUrl: dio.options.baseUrl).changePassword(paramChangePassword);
 
-  Future<ResponseStatus> forgotPassword({required ParamForgotPassword paramForgotPassword}) async =>
+  Future<ResponseDataStatus> forgotPassword({required ParamForgotPassword paramForgotPassword}) async =>
       await RestClient(dio, baseUrl: dio.options.baseUrl).forgotPassword(paramForgotPassword);
 
-  Future<ResponseStatus> resetPassword({required ParamResetPassword paramResetPassword}) async =>
+  Future<ResponseDataStatus> resetPassword({required ParamResetPassword paramResetPassword}) async =>
       await RestClient(dio, baseUrl: dio.options.baseUrl).resetPassword(paramResetPassword);
 
-  Future<ResponseStatus> postUpdateProfile({required InfoUser infoUser}) async =>
+  Future<ResponseDataStatus> postUpdateProfile({required InfoUser infoUser}) async =>
       await RestClient(dio, baseUrl: dio.options.baseUrl).postUpdateProfile(infoUser);
 
-  Future<ResponseDataStatus> postImage({required File file, required String code, required List<dynamic> type, required String email, required String name}) async =>
-      await RestClient(dio, baseUrl: dio.options.baseUrl).postImages(image: file, code: code, type: type, email: email, name: name);
+  Future<ResponseDataStatus> postImage({required File file, required String code, required String email, required String name}) async =>
+      await RestClient(dio, baseUrl: dio.options.baseUrl).postImages(image: file, code: code, email: email, name: name);
 
   Future<ResponsePostResultStatus> postResult({required int id, required int idQ}) async => await RestClient(dio, baseUrl: dio.options.baseUrl).postResult(id,idQ);
 
