@@ -82,7 +82,7 @@ class MainDrawer extends StatelessWidget {
                           Container(
                             height: 20,
                             child: Text(
-                              '${MESSAGES.HELLO} ${state.infoUser.name.substring(0, 20)}',
+                              '${MESSAGES.HELLO} ${state.infoUser.name}',
                               softWrap: false,
                               textAlign: TextAlign.justify,
                               maxLines: 1,
