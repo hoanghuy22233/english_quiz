@@ -216,7 +216,7 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
   _buildButtonRegister() {
     return   InkWell(
       onTap: (){
-        _textMe();
+        Platform.isIOS ? _launchUniversalLinkIos("sms:0902183658?body=Tôi%20muốn%20đăng%20ký") : _Me("sms:0902183658?body=Tôi%20muốn%20đăng%20ký");
       }
       ,
       child: WidgetContainerCenter(
@@ -292,4 +292,37 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
       }
     }
   }
+
+  Future<void> _launchUniversalLinkIos(String url) async {
+    if (await canLaunch(url)) {
+      final bool nativeAppLaunchSucceeded = await launch(
+        url,
+        forceSafariVC: false,
+        universalLinksOnly: true,
+      );
+      if (!nativeAppLaunchSucceeded) {
+        await launch(
+          url,
+          forceSafariVC: true,
+        );
+      }
+    }
+  }
+
+
+  _Me(String url) async {
+    // Android
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      // iOS
+      if (await canLaunch(url)) {
+        await launch(url);
+      } else {
+        throw 'Could not launch $url';
+      }
+    }
+  }
+
+
 }
