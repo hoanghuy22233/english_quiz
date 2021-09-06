@@ -216,7 +216,7 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
   _buildButtonRegister() {
     return   InkWell(
       onTap: (){
-        Platform.isIOS ? _launchUniversalLinkIos("sms:0902183658?body=Tôi%20muốn%20đăng%20ký") : _Me("sms:0902183658?body=Tôi%20muốn%20đăng%20ký");
+        Platform.isIOS ? customLaunch('sms:0902183658') : _Me("sms:0902183658?body=Tôi%20muốn%20đăng%20ký");
       }
       ,
       child: WidgetContainerCenter(
@@ -321,6 +321,14 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
       } else {
         throw 'Could not launch $url';
       }
+    }
+  }
+
+  void customLaunch(command) async {
+    if (await canLaunch(command)) {
+      await launch(command);
+    } else {
+      print(' could not launch $command');
     }
   }
 
