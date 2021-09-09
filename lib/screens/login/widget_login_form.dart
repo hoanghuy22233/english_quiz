@@ -5,12 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:device_info/device_info.dart';
 import 'package:english_quiz/bloc/blocs.dart';
-import 'package:english_quiz/widgets/widget_dialog_register.dart';
 import 'package:english_quiz/widgets/widgets.dart';
-import 'package:imei_plugin/imei_plugin.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:utils_libs/utils_libs.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:community_material_icon/community_material_icon.dart';
 import 'package:formz/formz.dart';
@@ -56,7 +53,9 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
         deviceCode = deviceData['device'];
         print('deviceID: $deviceCode');
       } else if (Platform.isIOS) {
-        getImei();
+        deviceData = _readIosDeviceInfo(await deviceInfoPlugin.iosInfo);
+        deviceCode = deviceData['identifierForVendor'];
+        print('deviceID: $deviceCode');
       }
 
       LoginBloc.of(context).add(DeviceCodeChanged(deviceCode: deviceCode));
@@ -105,27 +104,22 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
     };
   }
 
-  Future<void> getImei() async {
-    String platformImei;
-    String idUnique = '';
-    try {
-      platformImei =
-      await ImeiPlugin.getImei(shouldShowRequestPermissionRationale: false);
-      List<String> multiImei = await ImeiPlugin.getImeiMulti();
-      print(multiImei);
-      idUnique = await ImeiPlugin.getId();
-    } on PlatformException {
-      platformImei = 'Failed to get platform version.';
-    }
-
-    if (!mounted) return;
-
-    setState(() {
-      deviceCode = idUnique;
-      print('mã imei: $deviceCode');
-    });
+  Map<String, dynamic> _readIosDeviceInfo(IosDeviceInfo data) {
+    return <String, dynamic>{
+      'name': data.name,
+      'systemName': data.systemName,
+      'systemVersion': data.systemVersion,
+      'model': data.model,
+      'localizedModel': data.localizedModel,
+      'identifierForVendor': data.identifierForVendor,
+      'isPhysicalDevice': data.isPhysicalDevice,
+      'utsname.sysname:': data.utsname.sysname,
+      'utsname.nodename:': data.utsname.nodename,
+      'utsname.release:': data.utsname.release,
+      'utsname.version:': data.utsname.version,
+      'utsname.machine:': data.utsname.machine,
+    };
   }
-
 
   @override
   void dispose() {
