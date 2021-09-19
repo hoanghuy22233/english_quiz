@@ -4,6 +4,7 @@ abstract class TheoryEnglishState extends Equatable{
   @override
   List<Object?> get props => [];
 }
+class TheoryEnglishLoadingState extends TheoryEnglishState {}
 
 class UpdateTheoryEnglish extends TheoryEnglishState{
   final ResponseTheoryDeatilStatus theory;

@@ -17,6 +17,7 @@ class TestsBloc extends Bloc<TestsEvent, TestsState>{
     }
   }
   Stream<TestsState> _mapTestEventToState(int testId) async* {
+    yield TestLoadingState();
     try{
       final response = await _userRepository.getTest(type: testId);
       // ignore: unrelated_type_equality_checks

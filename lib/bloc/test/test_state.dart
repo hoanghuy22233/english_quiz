@@ -7,6 +7,8 @@ abstract class TestsState extends Equatable{
 
 class InitTestState extends TestsState{}
 
+class TestLoadingState extends TestsState{}
+
 class UpdateTestState extends TestsState{
   final List<Tests> test;
   UpdateTestState(this.test);
