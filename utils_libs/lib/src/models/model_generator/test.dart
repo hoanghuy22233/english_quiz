@@ -9,7 +9,7 @@ part 'test.g.dart';
 // ignore: must_be_immutable
 class Tests extends Equatable {
   int id, type, status;
-  String title, content;
+  String title, content, note;
   dynamic answer;
   @JsonKey(name: "created_at")
   String createdAt;
@@ -22,7 +22,7 @@ class Tests extends Equatable {
       this.type,
       this.status,
       this.title,
-      this.content,
+      this.content,this.note,
 
         this.answer,
       this.createdAt,
@@ -33,7 +33,7 @@ class Tests extends Equatable {
       type,
       status,
       String title,
-      content,
+      content,note,
         List<String> answer,
       String createdAt,
       String updatedAt,
@@ -43,6 +43,7 @@ class Tests extends Equatable {
       status: status ?? this.status,
       type: type ?? this.type,
       title: title??this.title,
+      note:note??this.note,
       content: content ?? this.content,
       answer: answer??this.answer,
       createdAt: createdAt ?? this.createdAt,
@@ -56,7 +57,7 @@ class Tests extends Equatable {
 
   @override
   List<Object> get props => [
-        id,status,type,title,content,answer,
+        id,status,type,title,content,answer,note,
         createdAt,
         updatedAt,questions
       ];

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:english_quiz/bloc/Theory/theory_bloc.dart';
 import 'package:english_quiz/widgets/bloc/widget_bloc_theory.dart';
 import 'package:english_quiz/widgets/widgets.dart';
@@ -54,36 +56,44 @@ class _KnowledgeTheoryScreenState extends State<KnowledgeTheoryScreen> {
                             },
                             child: Container(
                               padding: EdgeInsets.symmetric(horizontal: 10),
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    flex: 2,
-                                    child: Card(
-                                      color: Colors.white,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(5.0),),
-                                      elevation: 2,
-                                      child: Container(
-                                        // color: Colors.white,
-                                          child: Image.asset(IMAGES.LOGO_APP, height: 60, width: 60,)),
-                                    ),
+                              child: Card(
+                                color: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0),),
+                                elevation: 2,
+                                child: Container(
+                                  decoration: BoxDecoration(// Set border width
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(500)), // Set rounded corner radius// Make rounded corner of border
                                   ),
-                                  Expanded(
-                                    flex: 8,
-                                    child: Card(
-                                      color: Colors.white,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(5.0)),
-                                      elevation: 2,
-                                      child: Container(
-                                        // color: Colors.white,
-                                          width: MediaQuery.of(context).size.width,
-                                          padding: EdgeInsets.all(22),
-                                          child: Text(theorys[index].title, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)),
-                                    ),
-                                  )
+                                  height: MediaQuery.of(context).size.height*0.1,
+                                  width: MediaQuery.of(context).size.width,
+                                  child: Row(
 
-                                ],
+                                    children: [
+                                      Container(
+                                        height: MediaQuery.of(context).size.height,
+                                        width: 10,
+                                        color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
+                                      ),
+                                      Expanded(
+                                        flex: 2,
+                                        child: Container(
+                                          // color: Colors.white,
+                                            child: Image.asset(IMAGES.LOGO_APP, height: 60, width: 60,)),
+                                      ),
+                                      Expanded(
+                                        flex: 8,
+                                        child: Container(
+                                          // color: Colors.white,
+                                            width: MediaQuery.of(context).size.width,
+                                            padding: EdgeInsets.all(22),
+                                            child: Text(theorys[index].title,maxLines: 2, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)),
+                                      )
+
+                                    ],
+                                  ),
+                                ),
                               ),
                             ),
                           );
