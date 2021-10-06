@@ -36,6 +36,7 @@ class QuizFinishedPage extends StatelessWidget {
             onTap:() => AppNavigator.navigateMain(),
           ),
         ),
+        centerTitle: true,
         title: Text('Kết quả',style: AppStyle.DEFAULT_MEDIUM.copyWith(
             color: Colors.white,
             fontWeight: FontWeight.bold)),

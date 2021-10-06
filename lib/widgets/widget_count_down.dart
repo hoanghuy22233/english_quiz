@@ -20,11 +20,14 @@ class Countdown extends AnimatedWidget {
     print('inSeconds ${clockTimer.inSeconds.toString()}');
     print('inSeconds.remainder ${clockTimer.inSeconds.remainder(60).toString()}');
 
-    return Text(
-      "$timerText",
-      style: TextStyle(
-        fontSize: 20,
-        color: Colors.white,
+    return Center(
+      child: Text(
+        "$timerText",
+        style: TextStyle(
+            fontSize: 20,
+            color: Colors.blueAccent,
+            fontWeight: FontWeight.bold
+        ),
       ),
     );
   }

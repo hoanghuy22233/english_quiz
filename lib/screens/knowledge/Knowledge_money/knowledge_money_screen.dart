@@ -1,5 +1,6 @@
 import 'package:english_quiz/bloc/Theory_container/theory_container_bloc.dart';
 import 'package:english_quiz/bloc/test/test_bloc.dart';
+import 'package:english_quiz/screens/detail_pdf/pdf_screen.dart';
 import 'package:english_quiz/screens/detail_test/english_detail_test_screen.dart';
 import 'package:english_quiz/widgets/bloc/bloc.dart';
 import 'package:english_quiz/widgets/bloc/widget_bloc_theory_container.dart';
@@ -29,6 +30,7 @@ class _KnowMoneyScreenState extends State<KnowMoneyScreen> {
           padding: EdgeInsets.all(10),
           child: WidgetBackButton(),
         ),
+        centerTitle: true,
         title: Text(MESSAGES.NAME, style: AppStyle.DEFAULT_MEDIUM.copyWith(
             color: Colors.white,
             fontWeight: FontWeight.bold)),
@@ -58,7 +60,12 @@ class _KnowMoneyScreenState extends State<KnowMoneyScreen> {
                         itemBuilder: (BuildContext context, int index) {
                           return InkWell(
                             onTap: (){
-                              _openUrl(theorys[index].content);
+                             // _openUrl(theorys[index].content);
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => PdfScreen(theorys[index].content),
+                                  ));
                             },
                             child: Container(
                               padding: EdgeInsets.symmetric(horizontal: 10),

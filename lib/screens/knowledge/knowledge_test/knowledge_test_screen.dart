@@ -62,7 +62,7 @@ class _KnowledgeTestScreenState extends State<KnowledgeTestScreen> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => KnowDetailTestScreen(state.test[index].id),
+                                      builder: (context) => KnowDetailTestScreen(state.test[index].id,state.test[index]),
                                     ));
                               },
                               child: Container(

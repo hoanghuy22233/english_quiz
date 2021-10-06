@@ -11,6 +11,26 @@ class CheckAnswersPage extends StatelessWidget {
 
   const CheckAnswersPage({Key? key, @required this.questions, @required this.answers}) : super(key: key);
 
+
+  Future<bool> showSumit(BuildContext context,int index) async {
+
+    return await showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Giải thích câu'),
+        content: questions![index].note!=null?Text(questions![index].note,style: TextStyle(color: Colors.black,fontSize: 12)):Text("Chưa có giải thích",style: TextStyle(color: Colors.black,fontSize: 12),),
+        actions:[
+          ElevatedButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child:Text('Thoát'),
+          ),
+
+
+        ],
+      ),
+    )??false;
+  }
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -20,6 +40,7 @@ class CheckAnswersPage extends StatelessWidget {
           child: WidgetBackButton(
           ),
         ),
+        centerTitle: true,
         title: Text('Kiểm tra lại',style: AppStyle.DEFAULT_MEDIUM.copyWith(
             color: Colors.white,
             fontWeight: FontWeight.bold)),
@@ -27,13 +48,16 @@ class CheckAnswersPage extends StatelessWidget {
       ),
       body: Stack(
         children: <Widget>[
-          ClipPath(
-            clipper: WaveClipperTwo(),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.width*0.1,
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20)
+                //                 <--- border radius here
               ),
-              height: 200,
             ),
           ),
           ListView.builder(
@@ -75,20 +99,35 @@ class CheckAnswersPage extends StatelessWidget {
                 color: Colors.black,
                 fontWeight: FontWeight.w500),),
             SizedBox(height: 5.0),
+            answers![index]!=null?
             Text(HtmlUnescape().convert("${answers![index]}"), style: AppStyle.DEFAULT_MEDIUM_BOLD.copyWith(
               color: correct ? Colors.green : Colors.red,
               fontSize: 18.0,
-            ),),
+            ),):Text("Chưa trả lời",style: AppStyle.DEFAULT_MEDIUM_BOLD,),
             SizedBox(height: 5.0),
             correct ? Container(): Text.rich(TextSpan(
               children: [
                 TextSpan(text: "Đáp án: "),
                 TextSpan(text: HtmlUnescape().convert(question.answer!) , style: AppStyle.DEFAULT_MEDIUM)
               ]
-            ),style: AppStyle.DEFAULT_MEDIUM,)
+            ),style: AppStyle.DEFAULT_MEDIUM,),
+            SizedBox(height: 5.0),
+            Container(
+              color: Colors.grey[300],
+              width: MediaQuery.of(context).size.width,
+            height: 1,),
+            SizedBox(height: 10.0),
+            GestureDetector(
+              onTap: (){
+                showSumit(context,index);
+              },
+              child: Text("Xem giải thích", style: TextStyle(color: Colors.green, fontSize: 14,decoration: TextDecoration.underline,),),
+            )
           ],
         ),
       ),
     );
   }
+
+
 }

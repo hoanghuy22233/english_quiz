@@ -33,6 +33,7 @@ class _EnglishTestScreenState extends State<EnglishTestScreen> {
           padding: EdgeInsets.all(10),
           child: WidgetBackButton(),
         ),
+        centerTitle: true,
         title: Text(MESSAGES.NAME,  style: AppStyle.DEFAULT_MEDIUM.copyWith(
             color: Colors.white,
             fontWeight: FontWeight.bold)),
@@ -63,7 +64,7 @@ class _EnglishTestScreenState extends State<EnglishTestScreen> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => EnglishDetailTestScreen(state.test[index].id),
+                                      builder: (context) => EnglishDetailTestScreen(state.test[index].id, state.test[index]),
                                     ));
                               },
                               child: Container(

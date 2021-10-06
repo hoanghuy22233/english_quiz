@@ -10,7 +10,7 @@ class Questions extends Equatable {
   int id, type, status;
   @JsonKey(name: "exam_id")
   int examId;
-  String title, content, answer;
+  String title, content, answer, note;
   @JsonKey(name: "incorrect_answer")
   List<dynamic> incorrectAnswers;
   @JsonKey(name: "created_at")
@@ -26,7 +26,7 @@ class Questions extends Equatable {
       this.title,
       this.content,
       this.incorrectAnswers,
-      this.answer,
+      this.answer,this.note,
       this.createdAt,
       this.updatedAt});
 
@@ -37,7 +37,7 @@ class Questions extends Equatable {
     int examId,
     String title,
     content,
-    answer,
+    answer,note,
     List<dynamic> incorrectAnswers,
     String createdAt,
     String updatedAt,
@@ -51,6 +51,7 @@ class Questions extends Equatable {
       incorrectAnswers:incorrectAnswers??this.incorrectAnswers,
       examId: examId ?? this.examId,
       answer: answer ?? this.answer,
+      note: note??this.note,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
     );
@@ -69,7 +70,7 @@ class Questions extends Equatable {
         content,
     incorrectAnswers,
         examId,
-        answer,
+        answer,note,
         createdAt,
         updatedAt
       ];

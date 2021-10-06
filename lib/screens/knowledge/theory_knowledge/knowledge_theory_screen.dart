@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:english_quiz/bloc/Theory/theory_bloc.dart';
+import 'package:english_quiz/screens/detail_pdf/pdf_screen.dart';
 import 'package:english_quiz/widgets/bloc/widget_bloc_theory.dart';
 import 'package:english_quiz/widgets/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -24,6 +25,7 @@ class _KnowledgeTheoryScreenState extends State<KnowledgeTheoryScreen> {
           padding: EdgeInsets.all(10),
           child: WidgetBackButton(),
         ),
+        centerTitle: true,
         title: Text(MESSAGES.NAME, style: AppStyle.DEFAULT_MEDIUM.copyWith(
             color: Colors.white,
             fontWeight: FontWeight.bold)),
@@ -52,7 +54,12 @@ class _KnowledgeTheoryScreenState extends State<KnowledgeTheoryScreen> {
                         itemBuilder: (BuildContext context, int index) {
                           return InkWell(
                             onTap: (){
-                              _openUrl(theorys[index].content);
+                              // _openUrl(theorys[index].content);
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => PdfScreen(theorys[index].content),
+                                  ));
                             },
                             child: Container(
                               padding: EdgeInsets.symmetric(horizontal: 10),

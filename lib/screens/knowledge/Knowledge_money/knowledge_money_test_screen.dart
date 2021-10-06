@@ -30,6 +30,7 @@ class _KnowledgeMoneyTestScreenState extends State<KnowledgeMoneyTestScreen> {
           padding: EdgeInsets.all(10),
           child: WidgetBackButton(),
         ),
+        centerTitle: true,
         title: Text(MESSAGES.NAME,  style: AppStyle.DEFAULT_MEDIUM.copyWith(
             color: Colors.white,
             fontWeight: FontWeight.bold)),
@@ -60,7 +61,7 @@ class _KnowledgeMoneyTestScreenState extends State<KnowledgeMoneyTestScreen> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => KnowDetailTestScreen(state.test[index].id),
+                                      builder: (context) => KnowDetailTestScreen(state.test[index].id, state.test[index]),
                                     ));
                               },
                               child: Container(

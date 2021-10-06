@@ -20,15 +20,17 @@ class MyRadioListTile<T> extends StatelessWidget {
     final title = this.title;
     return InkWell(
       onTap: () => onChanged(value),
-      child: Container(
-        // height: 56,
-        padding: EdgeInsets.symmetric(horizontal: 16,vertical: 5),
-        child: Row(
-          children: [
-            _customRadioButton,
-            SizedBox(width: 12),
-            if (title != null) title,
-          ],
+      child: Card(
+        elevation: 2,
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 16,vertical: 5),
+          child: Row(
+            children: [
+              _customRadioButton,
+              SizedBox(width: 12),
+              if (title != null) title,
+            ],
+          ),
         ),
       ),
     );

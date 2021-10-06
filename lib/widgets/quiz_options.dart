@@ -3,7 +3,6 @@ import 'package:english_quiz/controller/error.dart';
 import 'package:english_quiz/models/category.dart';
 import 'package:english_quiz/models/question.dart';
 import 'package:english_quiz/resources/api_provider.dart';
-import 'package:english_quiz/screens/quiz/quiz_page.dart';
 import 'package:flutter/material.dart';
 
 class QuizOptionsDialog extends StatefulWidget {
@@ -160,9 +159,9 @@ class _QuizOptionsDialogState extends State<QuizOptionsDialog> {
         ));
         return;
       }
-      Navigator.push(context, MaterialPageRoute(
-        builder: (_) => QuizPage(questions: questions,)
-      ));
+      // Navigator.push(context, MaterialPageRoute(
+      //   builder: (_) => QuizPage(questions: questions,)
+      // ));
     }on SocketException catch (_) {
       Navigator.pushReplacement(context, MaterialPageRoute(
         builder: (_) => ErrorPage(message: "Can't reach the servers, \n Please check your internet connection.",)
