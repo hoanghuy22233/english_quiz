@@ -49,40 +49,6 @@ class _MainScreenState extends State<MainScreen> {
               onPress: handleOnPressItemMenu,
             ),
 
-            // BlocBuilder<InfoUserBloc, InfoUserState>(
-            //   bloc: InfoUserBloc.of(context)..add(InitDataEvent())..add(AddDataEvent()),
-            //   builder: (context, state) {
-            //     if (state is UpdateInfoUserState) {
-            //       return MainDrawer(
-            //         onPress: handleOnPressItemMenu,
-            //         infoUser: state.infoUser,
-            //       );
-            //     } else if (state is ErrorState) {
-            //       return Container(
-            //         child: SingleChildScrollView(
-            //           child: Column(
-            //             children: [
-            //               TrailError(height: 250, width: 250),
-            //               Text(MESSAGES.CONNECT_ERROR, style: AppStyle.DEFAULT_MEDIUM),
-            //               AppValue.vSpaceSmall,
-            //               WidgetButton(
-            //                 onTap: () => AppNavigator.navigateLogout(),
-            //                 enable: true,
-            //                 backgroundColor: COLORS.PRIMARY_COLOR,
-            //                 text: MESSAGES.TRY,
-            //                 width: 120,
-            //               )
-            //             ],
-            //           ),
-            //         ),
-            //       );
-            //     } else {
-            //       return Center(
-            //         child: TrailLoading(height: 150, width: 150),
-            //       );
-            //     }
-            //   }
-            // ),
           ),
         ),
         homePageContent: DoubleBackToCloseApp(
@@ -112,7 +78,21 @@ class _MainScreenState extends State<MainScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            SizedBox(height: 100,),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Padding(
+                                    padding: EdgeInsets.only(right: 20,top: 60),
+                                  child: GestureDetector(
+                                    onTap: (){
+                                      AppNavigator.navigateNotification();
+                                    },
+                                    child: Icon(Icons.notifications, color: Colors.white,size: 25,),
+                                  ),
+                                )
+                              ],
+                            ),
+                            SizedBox(height: MediaQuery.of(context).size.height*0.1,),
                             WidgetContainerImage(
                               height: MediaQuery.of(context).size.width*0.6,
                               width: MediaQuery.of(context).size.width*0.6,
@@ -148,7 +128,7 @@ class _MainScreenState extends State<MainScreen> {
                       );
                     } else {
                       return Center(
-                        child: TrailLoading(height: 150, width: 150),
+                        child: TrailLoading(height: MediaQuery.of(context).size.width*0.2, width: MediaQuery.of(context).size.width*0.2),
                       );
                     }
                   }

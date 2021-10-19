@@ -12,7 +12,7 @@ class TrailLoading extends StatelessWidget {
         height: height,
         width: width,
         child: Lottie.asset(
-          'assets/lottie/kute-loading.json',
+          'assets/lottie/loading.json',
         ),
       ),
     );

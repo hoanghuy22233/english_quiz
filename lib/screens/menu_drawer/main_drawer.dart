@@ -104,7 +104,7 @@ class MainDrawer extends StatelessWidget {
                     );
                   } else {
                     return Center(
-                      child: TrailLoading(height: 150, width: 150),
+                      child: TrailLoading(height: MediaQuery.of(context).size.width*0.2, width: MediaQuery.of(context).size.width*0.2),
                     );
                   }
                 }
@@ -136,17 +136,17 @@ class MainDrawer extends StatelessWidget {
                 )
             ),
             AppValue.vSpaceTiny,
-            Center(
-              child: InkWell(
-                child: WidgetButton(
-                  onTap: () async => bloc.add(AuthenticationLogoutRequested()),
-                  backgroundColor: COLORS.RED,
-                  width: 150,
-                  height: 40,
-                  text: MESSAGES.LOG_OUT,
-                ),
-              ),
-            ),
+            // Center(
+            //   child: InkWell(
+            //     child: WidgetButton(
+            //       onTap: () async => bloc.add(AuthenticationLogoutRequested()),
+            //       backgroundColor: COLORS.RED,
+            //       width: 150,
+            //       height: 40,
+            //       text: MESSAGES.LOG_OUT,
+            //     ),
+            //   ),
+            // ),
             AppValue.vSpaceTiny,
           ],
         ),

@@ -118,7 +118,7 @@ class _KnowledgeTestScreenState extends State<KnowledgeTestScreen> {
               );
             }else {
               return Center(
-                child: TrailLoading(height: 100, width: 100),
+                child: TrailLoading(height: MediaQuery.of(context).size.width*0.2, width: MediaQuery.of(context).size.width*0.2),
               );
             }
           },

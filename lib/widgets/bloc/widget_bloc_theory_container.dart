@@ -18,7 +18,7 @@ class WidgetTheoryContainerBloc extends StatelessWidget {
       if (state is UpdateContainerTheory) {
         return blocTheory(state.theorys);
       } else {
-        return TrailLoading(width: 100, height: 100);
+        return TrailLoading(height: MediaQuery.of(context).size.width*0.2, width: MediaQuery.of(context).size.width*0.2);
       }
     },
   );

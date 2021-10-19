@@ -45,7 +45,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       bloc: UserNotificationBloc.of(context)..add(InitUserNotificationEvent()),
                       blocUserNotification: (NotificationUser noti) {
                         final List<NotificationData>? notification = noti.userNotification;
-                        if(notification == null) return TrailLoading(width: 100, height: 100);
+                        if(notification == null) return TrailLoading(height: MediaQuery.of(context).size.width*0.2, width: MediaQuery.of(context).size.width*0.2);
                         return ListView.builder(
                           itemCount: notification.length,
                           shrinkWrap: true,

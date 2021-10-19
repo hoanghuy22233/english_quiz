@@ -223,7 +223,7 @@ class _AccountInformationState extends State<AccountInformation> with SingleTick
                           }
                           else {
                             return Center(
-                              child: TrailLoading(height: 100, width: 100),
+                              child: TrailLoading(height: MediaQuery.of(context).size.width*0.2, width: MediaQuery.of(context).size.width*0.2),
                             );
                           }
                         },
@@ -248,7 +248,7 @@ class _AccountInformationState extends State<AccountInformation> with SingleTick
                             }
                             else {
                               return Center(
-                                child: TrailLoading(height: 100, width: 100),
+                                child: TrailLoading(height: MediaQuery.of(context).size.width*0.2, width: MediaQuery.of(context).size.width*0.2),
                               );
                             }
                           },
