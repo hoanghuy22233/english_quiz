@@ -38,7 +38,6 @@ dependencies:
     path: utils_libs
   change_app_package_name: ^1.0.0
   animated_drawer: ^0.0.4
-  pie_chart: ^5.0.0
   shared_preferences: ^2.0.5
   flutter_plugin_android_lifecycle: ^2.0.2
   modal_bottom_sheet: ^2.0.0
