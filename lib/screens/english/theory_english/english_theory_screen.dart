@@ -64,12 +64,12 @@ class _EnglishTheoryScreenState extends State<EnglishTheoryScreen> {
                           itemBuilder: (BuildContext context, int index) {
                             return InkWell(
                               onTap: (){
-                                // _openUrl(theorys[index].content);
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => PdfScreen(theorys[index].content),
-                                    ));
+                                 _openUrl(theorys[index].content);
+                                // Navigator.push(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //       builder: (context) => PdfScreen(theorys[index].content),
+                                //     ));
                               },
                               child: Container(
                                 padding: EdgeInsets.symmetric(horizontal: 10),

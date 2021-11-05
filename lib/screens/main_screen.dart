@@ -49,40 +49,6 @@ class _MainScreenState extends State<MainScreen> {
               onPress: handleOnPressItemMenu,
             ),
 
-            // BlocBuilder<InfoUserBloc, InfoUserState>(
-            //   bloc: InfoUserBloc.of(context)..add(InitDataEvent())..add(AddDataEvent()),
-            //   builder: (context, state) {
-            //     if (state is UpdateInfoUserState) {
-            //       return MainDrawer(
-            //         onPress: handleOnPressItemMenu,
-            //         infoUser: state.infoUser,
-            //       );
-            //     } else if (state is ErrorState) {
-            //       return Container(
-            //         child: SingleChildScrollView(
-            //           child: Column(
-            //             children: [
-            //               TrailError(height: 250, width: 250),
-            //               Text(MESSAGES.CONNECT_ERROR, style: AppStyle.DEFAULT_MEDIUM),
-            //               AppValue.vSpaceSmall,
-            //               WidgetButton(
-            //                 onTap: () => AppNavigator.navigateLogout(),
-            //                 enable: true,
-            //                 backgroundColor: COLORS.PRIMARY_COLOR,
-            //                 text: MESSAGES.TRY,
-            //                 width: 120,
-            //               )
-            //             ],
-            //           ),
-            //         ),
-            //       );
-            //     } else {
-            //       return Center(
-            //         child: TrailLoading(height: 150, width: 150),
-            //       );
-            //     }
-            //   }
-            // ),
           ),
         ),
         homePageContent: DoubleBackToCloseApp(
