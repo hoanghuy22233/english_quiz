@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:english_quiz/bloc/Theory_english/theory_english_bloc.dart';
@@ -64,12 +65,12 @@ class _EnglishTheoryScreenState extends State<EnglishTheoryScreen> {
                           itemBuilder: (BuildContext context, int index) {
                             return InkWell(
                               onTap: (){
-                                 _openUrl(theorys[index].content);
-                                // Navigator.push(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //       builder: (context) => PdfScreen(theorys[index].content),
-                                //     ));
+                                Platform.isIOS? _openUrl(theorys[index].content):
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => PdfScreen(theorys[index].content),
+                                    ));
                               },
                               child: Container(
                                 padding: EdgeInsets.symmetric(horizontal: 10),
