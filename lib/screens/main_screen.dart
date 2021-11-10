@@ -132,7 +132,7 @@ class _MainScreenState extends State<MainScreen> {
       width: MediaQuery.of(context).size.width/1.4,
       height: 60,
       onTap: (){
-        if(listType!.contains('2') || listType!.contains('4'))
+        if(listType!.contains('2') || listType.contains('4'))
           AppNavigator.navigateKnowledge();
         else
           showDialog(
@@ -152,7 +152,7 @@ class _MainScreenState extends State<MainScreen> {
           SizedBox(width: 10,),
           Text(MESSAGES.KNOWLEDGE,style: AppStyle.DEFAULT_MEDIUM.copyWith(color: COLORS.PRIMARY_COLOR,fontSize: 16, fontWeight: FontWeight.bold)),
           SizedBox(width: 10,),
-          listType!.contains('2') || listType!.contains('4') ? Container() : WidgetContainerImage(image: ICONS.LOCK_ICON, height: 20, width: 20,)
+          listType!.contains('2') || listType.contains('4') ? Container() : WidgetContainerImage(image: ICONS.LOCK_ICON, height: 20, width: 20,)
         ],
       ),
     );
@@ -164,7 +164,7 @@ class _MainScreenState extends State<MainScreen> {
       width: MediaQuery.of(context).size.width/1.4,
       height: 60,
       onTap: (){
-        if(listType!.contains('3') || listType!.contains('4'))
+        if(listType!.contains('3') || listType.contains('4'))
           AppNavigator.navigateTestMoneyActivity();
         else showDialog(
           context: context,
@@ -182,7 +182,7 @@ class _MainScreenState extends State<MainScreen> {
           SizedBox(width: 10,),
           Text(MESSAGES.KNOWLEDGE2,style: AppStyle.DEFAULT_MEDIUM.copyWith(color: COLORS.PRIMARY_COLOR,fontSize: 16, fontWeight: FontWeight.bold)),
           SizedBox(width: 10,),
-          listType!.contains('3') || listType!.contains('4') ? Container() : WidgetContainerImage(image: ICONS.LOCK_ICON, height: 20, width: 20,)
+          listType!.contains('3') || listType.contains('4') ? Container() : WidgetContainerImage(image: ICONS.LOCK_ICON, height: 20, width: 20,)
         ],
       ),
     );
@@ -195,7 +195,7 @@ class _MainScreenState extends State<MainScreen> {
       width: MediaQuery.of(context).size.width/1.4,
       height: 60,
       onTap: (){
-        if(listType!.contains('1') || listType!.contains('4'))
+        if(listType!.contains('1') || listType.contains('4'))
           AppNavigator.navigateEnglish();
 
         else showDialog(
@@ -214,7 +214,7 @@ class _MainScreenState extends State<MainScreen> {
           SizedBox(width: 10,),
           Text(MESSAGES.ENGLISH,style: AppStyle.DEFAULT_MEDIUM.copyWith(color: COLORS.PRIMARY_COLOR,fontSize: 16, fontWeight: FontWeight.bold)),
           SizedBox(width: 10,),
-          listType!.contains('1') || listType!.contains('4') ? Container() : WidgetContainerImage(image: ICONS.LOCK_ICON, height: 20, width: 20,)
+          listType!.contains('1') || listType.contains('4') ? Container() : WidgetContainerImage(image: ICONS.LOCK_ICON, height: 20, width: 20,)
         ],
       ),
     );

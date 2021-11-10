@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:utils_libs/utils_libs.dart';
 
 class WidgetCachedImageError extends StatelessWidget {
-  final String icon;
+  final String? icon;
 
   WidgetCachedImageError(this.icon);
 
