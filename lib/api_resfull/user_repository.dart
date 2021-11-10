@@ -1,4 +1,5 @@
 import 'package:english_quiz/storages/share_local.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:utils_libs/utils_libs.dart'; // ignore: import_of_legacy_library_into_null_safe
 import 'dart:io';
 import 'dart:async';
@@ -13,7 +14,7 @@ class UserRepository {
   final _controllerUser = StreamController<DataUser>();
   UserRepository(){
     statusUser.listen((event) {
-     if(event.token == DotEnv.env[PreferencesKey.TOKEN]!){
+     if(event.token == dotenv.get(PreferencesKey.TOKEN)){
        dio = DioProvider.instance();
      }else{
         dio = DioProvider.instance(token: shareLocal.getString(PreferencesKey.TOKEN));
@@ -62,7 +63,7 @@ class UserRepository {
       await RestClient(dio, baseUrl: dio.options.baseUrl).postUpdateProfile(infoUser);
 
   Future<ResponseDataStatus> postImage({required File file, required String code, required String email, required String name}) async =>
-      await RestClient(dio, baseUrl: dio.options.baseUrl).postImages(image: file, code: code, email: email, name: name);
+      await RestClient(dio, baseUrl: dio.options.baseUrl).postImage(file,code,email, name);
 
   Future<ResponsePostResultStatus> postResult({required int id, required int idQ}) async => await RestClient(dio, baseUrl: dio.options.baseUrl).postResult(id,idQ);
 

@@ -91,7 +91,7 @@ class _StatisticalScreenState extends State<StatisticalScreen> {
                                                     ),
                                                     AppValue.vSpaceTiny,
                                                     Text(
-                                                      state.infoUser.name.toLowerCase(),
+                                                      state.infoUser.name!.toLowerCase(),
                                                       softWrap: false,
                                                       overflow: TextOverflow.fade,
                                                       style: AppStyle.DEFAULT_SMALLs,
@@ -158,7 +158,7 @@ class _StatisticalScreenState extends State<StatisticalScreen> {
                                                 // color: Colors.white,
                                                   width: MediaQuery.of(context).size.width,
                                                   padding: EdgeInsets.all(22),
-                                                  child: Text(state.test[index].title, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)),
+                                                  child: Text(state.test[index].title!, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)),
                                             ),
                                           )
 

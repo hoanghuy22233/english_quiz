@@ -19,7 +19,7 @@ class PostBloc extends Bloc<PostEvent, PostState>{
     try{
       final response = await _userRepository.getPost(type: type);
       if(response.status == BASE_URL.SUCCESS){
-        yield UpdatePostState(response.data);
+        yield UpdatePostState(response.data!);
       }
     }catch(e){
       throw e;

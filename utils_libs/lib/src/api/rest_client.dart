@@ -59,7 +59,7 @@ abstract class RestClient {
   Future<ResponseDataStatus> postUpdateProfile(@Body() InfoUser infoUser);
 
   @POST(BASE_URL.PROFILE)
-  Future<ResponseDataStatus> postImages({@Part() File image, @Query('code') String code, @Query('email') String email, @Query('name') String name});
+  Future<ResponseDataStatus> postImage(@Part() File image, @Query('code') String code, @Query('email') String email, @Query('name') String name);
 
   @POST(BASE_URL.SEEN_UPDATE + "/{id}")
   Future<NotificationSeenResponseStatus> seenNotification(@Path("id") int id);

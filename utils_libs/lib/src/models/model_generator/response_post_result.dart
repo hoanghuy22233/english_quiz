@@ -4,9 +4,9 @@ part 'response_post_result.g.dart';
 
 @JsonSerializable()
 class ResponsePostResultStatus {
-  final bool status;
-  final PostResultData data;
-  final String message;
+  final bool? status;
+  final PostResultData? data;
+  final String? message;
 
   const ResponsePostResultStatus({this.status, this.data, this.message});
 
@@ -19,11 +19,11 @@ class ResponsePostResultStatus {
 @JsonSerializable()
 class PostResultData {
   @JsonKey(name: "total_correct")
-  final String totalCorrect;
+  final String? totalCorrect;
   @JsonKey(name: "total_wrong")
-  final String totalWrong;
-  final String percent;
-  final int total;
+  final String? totalWrong;
+  final String? percent;
+  final int? total;
 
 
   PostResultData({this.totalCorrect, this.totalWrong, this.percent, this.total,});

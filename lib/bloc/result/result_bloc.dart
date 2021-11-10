@@ -19,7 +19,7 @@ class ResultBloc extends Bloc<ResultEvent, ResultState>{
     try{
       final response = await _userRepository.postResult(id: type,idQ: idQ);
       if(response.status == BASE_URL.SUCCESS){
-        yield UpdateResultState(response.data);
+        yield UpdateResultState(response.data!);
       }
     }catch(e){
       throw e;

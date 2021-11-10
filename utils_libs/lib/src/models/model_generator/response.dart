@@ -4,9 +4,9 @@ part 'response.g.dart';
 
 @JsonSerializable()
 class ResponseStatus {
-  final bool status;
-  final InfoUser data;
-  final String message;
+  final bool? status;
+  final InfoUser? data;
+  final String? message;
 
   const ResponseStatus({this.status, this.data, this.message});
 
@@ -18,9 +18,9 @@ class ResponseStatus {
 
 @JsonSerializable()
 class ResponseDataStatus {
-  final bool status;
-  final Data data;
-  final String message;
+  final bool? status;
+  final Data? data;
+  final String? message;
 
   const ResponseDataStatus({this.status, this.data, this.message});
 
@@ -33,7 +33,7 @@ class ResponseDataStatus {
 
 @JsonSerializable()
 class Data {
-  final InfoUser user;
+  final InfoUser? user;
 
   const Data({this.user});
 

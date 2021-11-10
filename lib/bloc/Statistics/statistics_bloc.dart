@@ -21,7 +21,7 @@ class StatisticsBloc extends Bloc<StatisticsEvent, StatisticsState>{
       final response = await _userRepository.getStatistics();
       // ignore: unrelated_type_equality_checks
       if(response.status == BASE_URL.SUCCESS){
-        yield UpdateStatisticsState(List<StatisticsData>.from(response.data));
+        yield UpdateStatisticsState(List<StatisticsData>.from(response.data!));
       }
     }catch(e){
       throw e;

@@ -28,8 +28,8 @@ class WidgetLineContainer extends StatelessWidget {
 
 
 class WidgetHeightLive extends StatelessWidget {
-  final Color color;
-  final double height, width;
+  final Color? color;
+  final double? height, width;
 
   const WidgetHeightLive({this.color, this.height, this.width});
 
@@ -44,10 +44,10 @@ class WidgetHeightLive extends StatelessWidget {
 }
 
 class WidgetContainerImage extends StatelessWidget {
-  final double width, height, padding;
-  final String image;
-  final BoxDecoration boxDecoration;
-  final Color colorImage;
+  final double? width, height, padding;
+  final String? image;
+  final BoxDecoration? boxDecoration;
+  final Color? colorImage;
 
   const WidgetContainerImage(
       {this.width = 30, this.height = 30, this.padding = 0, this.image, this.boxDecoration, this.colorImage});
@@ -58,18 +58,18 @@ class WidgetContainerImage extends StatelessWidget {
       height: height,
       width: width,
       decoration: boxDecoration,
-      padding: EdgeInsets.all(padding),
+      padding: EdgeInsets.all(padding!),
       child: Center(
-          child: Image.asset(image, color: colorImage,)
+          child: Image.asset(image!, color: colorImage,)
       ),
     );
   }
 }
 
 class WidgetContainerIcon extends StatelessWidget {
-  final double width, height;
-  final IconData icon;
-  final Color backgroundColor, iconColor;
+  final double? width, height;
+  final IconData? icon;
+  final Color? backgroundColor, iconColor;
 
   const WidgetContainerIcon(
       {this.width = 35, this.height = 35, this.icon, this.backgroundColor = COLORS.PRIMARY_COLOR, this.iconColor = COLORS.WHITE});
@@ -86,8 +86,8 @@ class WidgetContainerIcon extends StatelessWidget {
 }
 
 class WidgetContainerColor extends StatelessWidget {
-  final double width, height;
-  final Color color;
+  final double? width, height;
+  final Color? color;
 
   const WidgetContainerColor({this.width, this.height, this.color});
 
@@ -102,9 +102,9 @@ class WidgetContainerColor extends StatelessWidget {
 }
 
 class WidgetContainerText extends StatelessWidget {
-  final String title;
-  final double width;
-  final TextStyle style;
+  final String? title;
+  final double? width;
+  final TextStyle? style;
 
   const WidgetContainerText({this.title, this.width, this.style});
 
@@ -113,17 +113,17 @@ class WidgetContainerText extends StatelessWidget {
     return Container(
       width: width ?? null,
       padding: EdgeInsets.only(top: 15),
-      child: Text(title, style: style ?? TextStyle(color: COLORS.GREEN)),
+      child: Text(title!, style: style ?? TextStyle(color: COLORS.GREEN)),
     );
   }
 }
 
 
 class WidgetCircleProgress extends StatelessWidget {
-  final Color backgroundColor;
-  final Color valueColor;
+  final Color? backgroundColor;
+  final Color? valueColor;
 
-  const WidgetCircleProgress({Key key, this.backgroundColor, this.valueColor})
+  const WidgetCircleProgress({Key? key, this.backgroundColor, this.valueColor})
       : super(key: key);
 
   @override
@@ -142,9 +142,9 @@ class WidgetCircleProgress extends StatelessWidget {
 }
 
 class WidgetContainerCenter extends StatelessWidget {
-  final double width, height;
-  final Widget child;
-  final BoxDecoration boxDecoration;
+  final double? width, height;
+  final Widget? child;
+  final BoxDecoration? boxDecoration;
 
   WidgetContainerCenter({this.width, this.height, this.child, this.boxDecoration});
 
@@ -160,10 +160,10 @@ class WidgetContainerCenter extends StatelessWidget {
 
 
 class WidgetCircleColorContainer extends StatelessWidget {
-  final Color color;
-  final double width, height;
-  final Widget child;
-  final AlignmentGeometry alignment;
+  final Color? color;
+  final double? width, height;
+  final Widget? child;
+  final AlignmentGeometry? alignment;
 
   WidgetCircleColorContainer(
       {this.color, this.width, this.height, this.child, this.alignment});

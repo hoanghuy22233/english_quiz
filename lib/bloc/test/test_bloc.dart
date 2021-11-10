@@ -22,7 +22,7 @@ class TestsBloc extends Bloc<TestsEvent, TestsState>{
       final response = await _userRepository.getTest(type: testId);
       // ignore: unrelated_type_equality_checks
       if(response.status == BASE_URL.SUCCESS){
-        yield UpdateTestState(List<Tests>.from(response.data));
+        yield UpdateTestState(List<Tests>.from(response.data!));
       }
     }catch(e){
       throw e;

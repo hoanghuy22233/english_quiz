@@ -62,7 +62,7 @@ class _KnowledgeTestScreenState extends State<KnowledgeTestScreen> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => KnowDetailTestScreen(state.test[index].id,state.test[index]),
+                                      builder: (context) => KnowDetailTestScreen(state.test[index].id!,state.test[index]),
                                     ));
                               },
                               child: Container(
@@ -99,7 +99,7 @@ class _KnowledgeTestScreenState extends State<KnowledgeTestScreen> {
                                             // color: Colors.white,
                                               width: MediaQuery.of(context).size.width,
                                               padding: EdgeInsets.all(22),
-                                              child: Text(state.test[index].title,maxLines: 2, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)),
+                                              child: Text(state.test[index].title!,maxLines: 2, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)),
                                         )
 
                                       ],

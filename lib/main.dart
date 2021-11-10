@@ -20,6 +20,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:utils_libs/utils_libs.dart';
 import 'package:english_quiz/screens/screens.dart';
@@ -32,7 +33,7 @@ import 'screens/knowledge/Knowledge_money/knowledge_activity_money_screen.dart';
 
 Future main() async {
   Bloc.observer = SimpleBlocObserver();
-  await DotEnv.load(fileName: BASE_URL.ENV);
+  await dotenv.load(fileName: BASE_URL.ENV);
   shareLocal = await ShareLocal.getInstance();
 
   WidgetsFlutterBinding.ensureInitialized();

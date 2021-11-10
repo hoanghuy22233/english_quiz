@@ -7,7 +7,7 @@ class NotNull extends FormzInput<String, NotNullValidationError> {
   const NotNull.dirty([String value = '']) : super.dirty(value);
 
   @override
-  NotNullValidationError validator(String value) {
+  NotNullValidationError? validator(String value) {
     return value.isNotEmpty == true ? null : NotNullValidationError.invalid;
   }
 }

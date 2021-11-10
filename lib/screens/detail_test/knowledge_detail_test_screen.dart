@@ -116,9 +116,9 @@ class _KnowDetailTestScreenState extends State<KnowDetailTestScreen> with Ticker
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          widget.test.title.length <= 25
-                                              ? widget.test.title
-                                              : widget.test.title
+                                          widget.test.title!.length <= 25
+                                              ? widget.test.title!
+                                              : widget.test.title!
                                               .substring(0, 25) +
                                               '...',style:AppStyle.DEFAULT_MEDIUM.copyWith(
                                             color: Colors.white),maxLines: 2,
@@ -168,7 +168,7 @@ class _KnowDetailTestScreenState extends State<KnowDetailTestScreen> with Ticker
                                   state.question[_currentIndex].content!=null?
                                   Expanded(
                                     child:
-                                    state.question[_currentIndex].title.length>=5?
+                                    state.question[_currentIndex].title!.length>=5?
                                     ExpandableText(
                                       HtmlUnescape().convert(
                                           state.question[_currentIndex].title!)+ " " + HtmlUnescape().convert(

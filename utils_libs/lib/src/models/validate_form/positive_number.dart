@@ -7,7 +7,7 @@ class PositiveNumber extends FormzInput<int, PositiveNumberValidationError> {
   const PositiveNumber.dirty([int value = 5]) : super.dirty(value);
 
   @override
-  PositiveNumberValidationError validator(int value) {
+  PositiveNumberValidationError? validator(int value) {
     return value > 0 ? null : PositiveNumberValidationError.invalid;
   }
 }

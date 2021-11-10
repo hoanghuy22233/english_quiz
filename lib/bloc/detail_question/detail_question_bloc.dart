@@ -21,7 +21,7 @@ class DetailQuestionsBloc extends Bloc<DetailQuestionsEvent, DetailQuestionsStat
       final response = await _userRepository.getDetailQuestion(id: id);
       // ignore: unrelated_type_equality_checks
       if(response.status == BASE_URL.SUCCESS){
-        yield UpdateDetailQuestionsState(List<Questions>.from(response.data.question));
+        yield UpdateDetailQuestionsState(List<Questions>.from(response.data!.question));
       }
     }catch(e){
       throw e;

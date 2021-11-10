@@ -4,9 +4,9 @@ part 'response_post.g.dart';
 
 @JsonSerializable()
 class ResponsePostStatus {
-  final bool status;
-  final List<PostData> data;
-  final String message;
+  final bool? status;
+  final List<PostData>? data;
+  final String? message;
 
   const ResponsePostStatus({this.status, this.data, this.message});
 
@@ -19,12 +19,12 @@ class ResponsePostStatus {
 
 @JsonSerializable()
 class PostData {
-  final int id, type, status;
-  final String title, content;
+  final int? id, type, status;
+  final String? title, content;
   @JsonKey(name: "created_at")
-  final String createdAt;
+  final String? createdAt;
   @JsonKey(name: "updated_at")
-  final String updatedAt;
+  final String? updatedAt;
 
   const PostData({this.id, this.type, this.status, this.title, this.content, this.createdAt, this.updatedAt});
 

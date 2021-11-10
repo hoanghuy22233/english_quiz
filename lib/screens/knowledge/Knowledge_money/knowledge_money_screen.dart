@@ -63,11 +63,11 @@ class _KnowMoneyScreenState extends State<KnowMoneyScreen> {
                         itemBuilder: (BuildContext context, int index) {
                           return InkWell(
                             onTap: (){
-                              Platform.isIOS? _openUrl(theorys[index].content):
+                              Platform.isIOS? _openUrl(theorys[index].content!):
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => PdfScreen(theorys[index].content),
+                                    builder: (context) => PdfScreen(theorys[index].content!),
                                   ));
                             },
                             child: Container(
@@ -104,7 +104,7 @@ class _KnowMoneyScreenState extends State<KnowMoneyScreen> {
                                           // color: Colors.white,
                                             width: MediaQuery.of(context).size.width,
                                             padding: EdgeInsets.all(22),
-                                            child: Text(theorys[index].title,maxLines: 2, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)),
+                                            child: Text(theorys[index].title!,maxLines: 2, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)),
                                       )
 
                                     ],

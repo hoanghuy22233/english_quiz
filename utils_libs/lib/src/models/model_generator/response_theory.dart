@@ -6,28 +6,28 @@ part 'response_theory.g.dart';
 
 @JsonSerializable()
 class ResponseTheoryDeatilStatus extends Equatable{
-  final List<Theorys> data;
-  final Theorys theory;
+  final List<Theorys>? data;
+  final Theorys? theory;
 
   const ResponseTheoryDeatilStatus({ this.data,this.theory,});
 
-  ResponseTheoryDeatilStatus copyWith({List<Theorys> data, Theorys theory}) {
+  ResponseTheoryDeatilStatus copyWith({List<Theorys>? data, Theorys? theory}) {
     return ResponseTheoryDeatilStatus(
       data: data ?? this.data,
       theory: theory ?? theory,
     );
   }
   @override
-  List<Object> get props => [data, theory];
+  List<Object> get props => [data!, theory!];
 
 }
 
 
 @JsonSerializable()
 class ResponseTheoryStatus {
-  final bool status;
-  final List<Theorys> data;
-  final String message;
+  final bool? status;
+  final List<Theorys>? data;
+  final String? message;
 
   const ResponseTheoryStatus({this.status, this.data, this.message});
 
@@ -40,9 +40,9 @@ class ResponseTheoryStatus {
 
 @JsonSerializable()
 class ResponseTheoryDeatilStatuss {
-  final bool status;
-  final Theorys data;
-  final String message;
+  final bool? status;
+  final Theorys? data;
+  final String? message;
 
   const ResponseTheoryDeatilStatuss({this.status, this.data, this.message});
 

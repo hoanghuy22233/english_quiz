@@ -52,13 +52,13 @@ class _NotificationScreenState extends State<NotificationScreen> {
                           itemBuilder: (context, index) {
                             return InkWell(
                               onTap: (){
-                                UserNotificationBloc.of(context).add(InitDetailNotificationEvent(notification[index].id));
+                                UserNotificationBloc.of(context).add(InitDetailNotificationEvent(notification[index].id!));
                               },
                               child: WidgetItemContainer(
                                 title: notification[index].title ?? MESSAGES.NOTIFICATION,
                                 content: notification[index].content ?? MESSAGES.NOTIFICATION,
                                 createdDate: notification[index].createdAt ?? MESSAGES.NOTIFICATION,
-                                seen: notification[index].pivot.status ?? 0,
+                                seen: notification[index].pivot!.status ?? 0,
                               ),
                             );
                           },

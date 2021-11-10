@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'params_user.g.dart';
 @JsonSerializable()
 class ParamChangeInformation {
-  String name, code, email, phone, address, gender;
+  String? name, code, email, phone, address, gender;
 
   ParamChangeInformation(
       {
@@ -20,7 +20,7 @@ class ParamChangeInformation {
 
 @JsonSerializable()
 class ParamChangeAvatar {
-  String code, email, avatar;
+  String? code, email, avatar;
 
   ParamChangeAvatar(
       {

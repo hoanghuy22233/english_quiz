@@ -61,9 +61,9 @@ class ResendOTPBloc extends Bloc<ResendOTPEvent, ResendOTPState> {
       var response = await userRepository.forgotPassword(paramForgotPassword: paramForgotPassword);
 
       if (response.status == true) {
-        yield ResendOTPState.success(message: response.message);
+        yield ResendOTPState.success(message: response.message!);
       } else {
-        yield ResendOTPState.failure(message: response.message);
+        yield ResendOTPState.failure(message: response.message!);
       }
     } catch (e) {
       print(e.toString());

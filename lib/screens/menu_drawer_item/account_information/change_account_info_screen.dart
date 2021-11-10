@@ -78,7 +78,7 @@ class _ChangeAccountInformationState extends State<ChangeAccountInformation> {
                                       ToggleSwitch(
                                         minWidth: 75.0,
                                         minHeight: 30,
-                                        initialLabelIndex: info.gender,
+                                        initialLabelIndex: info.gender!,
                                         cornerRadius: 20.0,
                                         activeFgColor: Colors.white,
                                         inactiveBgColor: Colors.grey,

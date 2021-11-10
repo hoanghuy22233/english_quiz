@@ -18,7 +18,7 @@ class CheckAnswersPage extends StatelessWidget {
       context: context,
       builder: (context) => AlertDialog(
         title: Text('Giải thích câu'),
-        content: questions![index].note!=null?Text(questions![index].note,style: TextStyle(color: Colors.black,fontSize: 12)):Text("Chưa có giải thích",style: TextStyle(color: Colors.black,fontSize: 12),),
+        content: questions![index].note!=null?Text(questions![index].note!,style: TextStyle(color: Colors.black,fontSize: 12)):Text("Chưa có giải thích",style: TextStyle(color: Colors.black,fontSize: 12),),
         actions:[
           ElevatedButton(
             onPressed: () => Navigator.of(context).pop(false),

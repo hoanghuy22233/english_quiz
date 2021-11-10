@@ -36,13 +36,13 @@ class _NotificationDetailScreenState extends State<NotificationDetailScreen> {
               children: [
                 AppValue.vSpaceSmall,
                 Text(
-                  detailNotification.title,
+                  detailNotification.title!,
                   style: AppStyle.DEFAULT_MEDIUM_BOLD,
                 ),
                 Align(
                   alignment: Alignment.centerRight,
                   child: Text(
-                    AppValue.formatStringDate(detailNotification.createdAt) ?? DateTime.now().toString(),
+                    AppValue.formatStringDate(detailNotification.createdAt!) ?? DateTime.now().toString(),
                     style: AppStyle.DEFAULT_SMALLs,
                   ),
                 ),
@@ -52,7 +52,7 @@ class _NotificationDetailScreenState extends State<NotificationDetailScreen> {
                 ),
                 AppValue.vSpaceSmall,
                 HtmlWidget(
-                  detailNotification.content,
+                  detailNotification.content!,
                 ),
               ],
             ),

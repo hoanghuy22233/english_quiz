@@ -4,9 +4,9 @@ part 'response_statis_result.g.dart';
 
 @JsonSerializable()
 class ResponseStatisticsData {
-  bool status;
-  String message;
-  List<StatisticsData> data;
+  bool? status;
+  String? message;
+  List<StatisticsData>? data;
   ResponseStatisticsData({this.status, this.message, this.data});
   factory ResponseStatisticsData.fromJson(Map<String, dynamic> json) =>
       _$ResponseStatisticsDataFromJson(json);
@@ -15,18 +15,18 @@ class ResponseStatisticsData {
 
 @JsonSerializable()
 class StatisticsData {
-  int id, type,status;
-  final String title;
+  int? id, type,status;
+  final String? title;
   @JsonKey(name: "content")
-  final String content;
+  final String? content;
   @JsonKey(name: "answer")
-  final String answer;
+  final String? answer;
   @JsonKey(name: "created_at")
-  final String createdAt;
+  final String? createdAt;
   @JsonKey(name: "updated_at")
-  final String updateAt;
+  final String? updateAt;
   @JsonKey(name: "pivot")
-  Pivots pivot;
+  Pivots? pivot;
 
 
   StatisticsData({this.id, this.type, this.status,this.title, this.content, this.answer,
@@ -40,11 +40,11 @@ class StatisticsData {
 @JsonSerializable()
 class Pivots {
   @JsonKey(name: "user_id")
-  final int userId;
+  final int? userId;
   @JsonKey(name: "exam_id")
-  final int examId;
+  final int? examId;
   @JsonKey(name: "total_correct")
-  final int totalCorrect;
+  final int? totalCorrect;
 
 
   Pivots({this.userId, this.examId, this.totalCorrect});
