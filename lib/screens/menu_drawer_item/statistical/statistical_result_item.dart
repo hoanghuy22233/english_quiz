@@ -106,7 +106,7 @@ class _StatisticalResultItemState extends State<StatisticalResultItem> {
                       child: ListTile(
                         contentPadding: const EdgeInsets.all(16.0),
                         title: Text("Số câu chính xác", style: titleStyle),
-                        trailing: Text(state.test.totalCorrect!, style: trailingStyle),
+                        trailing: Text(state.test.totalCorrect, style: trailingStyle),
                       ),
                     ),
                     SizedBox(height: 10.0),
@@ -117,7 +117,7 @@ class _StatisticalResultItemState extends State<StatisticalResultItem> {
                       child: ListTile(
                         contentPadding: const EdgeInsets.all(16.0),
                         title: Text("Số câu sai", style: titleStyle),
-                        trailing: Text(state.test.totalWrong!, style: trailingStyle),
+                        trailing: Text(state.test.totalWrong, style: trailingStyle),
                       ),
                     ),
                     AppValue.vSpaceSmall,

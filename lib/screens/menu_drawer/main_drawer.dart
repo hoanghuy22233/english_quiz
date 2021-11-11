@@ -93,7 +93,7 @@ class MainDrawer extends StatelessWidget {
                           Container(
                             height: 20,
                             child: Text(
-                              state.infoUser.email!,
+                              state.infoUser.email,
                               overflow: TextOverflow.fade,
                               softWrap: false,
                               style: AppStyle.DEFAULT_SMALLs.copyWith(color: COLORS.WHITE),

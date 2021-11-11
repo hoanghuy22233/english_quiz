@@ -130,7 +130,7 @@ class _AccountInformationState extends State<AccountInformation> with SingleTick
                                               CrossAxisAlignment.start,
                                               children: [
                                                 Text(user.name!= null ?
-                                                  user.name!.length > 25 ? '${user.name!.substring(0, 25)} ...' :  user.name! :
+                                                  user.name.length > 25 ? '${user.name.substring(0, 25)} ...' :  user.name :
                                                   MESSAGES.NOT_SETUP, style: AppStyle.DEFAULT_MEDIUM_BOLD,
                                                 ),
                                                 Text(
@@ -168,7 +168,7 @@ class _AccountInformationState extends State<AccountInformation> with SingleTick
                                             ToggleSwitch(
                                               minWidth: 75.0,
                                               minHeight: 30,
-                                              initialLabelIndex: user.gender!,
+                                              initialLabelIndex: user.gender,
                                               cornerRadius: 20.0,
                                               changeOnTap: false,
                                               activeFgColor: Colors.white,

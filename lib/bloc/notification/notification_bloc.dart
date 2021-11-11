@@ -34,7 +34,7 @@ class UserNotificationBloc extends Bloc<UserNotificationEvent, UserNotificationS
       final response = await _userRepository.getDetailNotification(id: id);
       if(response.status == BASE_URL.SUCCESS){
         AppNavigator.navigateDetailNotification(response.data);
-        if(response.data!.pivot!.status == 0){
+        if(response.data.pivot.status == 0){
           try{
             final responseSeen = await _userRepository.seenNotification(id: id);
             if(responseSeen.status == BASE_URL.SUCCESS){

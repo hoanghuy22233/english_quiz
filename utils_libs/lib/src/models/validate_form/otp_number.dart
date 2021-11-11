@@ -9,7 +9,7 @@ class OTPNumber extends FormzInput<String, OTPNumberValidationError> {
   static final _otpRegex = RegExp(r'[0-9]{6,6}$');
 
   @override
-  OTPNumberValidationError? validator(String? value) {
+  OTPNumberValidationError validator(String value) {
     return _otpRegex.hasMatch(value ?? '') ? null : OTPNumberValidationError.invalid;
   }
 }

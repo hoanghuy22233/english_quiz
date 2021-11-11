@@ -275,37 +275,8 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
     );
   }
 
-  _textMe() async {
-    // Android
-    const uri = 'sms:0902183658?body=Tôi%20muốn%20đăng%20ký';
-    if (await canLaunch(uri)) {
-      await launch(uri);
-    } else {
-      // iOS
-      const uri = 'sms:0902183658?body=Tôi%20muốn%20đăng%20ký';
-      if (await canLaunch(uri)) {
-        await launch(uri);
-      } else {
-        throw 'Could not launch $uri';
-      }
-    }
-  }
 
-  Future<void> _launchUniversalLinkIos(String url) async {
-    if (await canLaunch(url)) {
-      final bool nativeAppLaunchSucceeded = await launch(
-        url,
-        forceSafariVC: false,
-        universalLinksOnly: true,
-      );
-      if (!nativeAppLaunchSucceeded) {
-        await launch(
-          url,
-          forceSafariVC: true,
-        );
-      }
-    }
-  }
+
 
 
   _Me(String url) async {

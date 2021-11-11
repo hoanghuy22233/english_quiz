@@ -77,14 +77,14 @@ class AppValue {
   static double widths = MediaQueryData.fromWindow(window).size.width;
   static double heights = MediaQueryData.fromWindow(window).size.height;
 
-  static String? formatStringDate(String dateString) => APP_DATE_FORMAT.format(DateTime.parse(dateString));
+  static String formatStringDate(String dateString) => APP_DATE_FORMAT.format(DateTime.parse(dateString));
 
   static String formatDate(String dateString) => DATE_FORMAT.format(DateTime.parse(dateString));
 
   static String formatDateMonthYear(String dateString) => YEAR_MONTH_DAY.format(DateTime.parse(dateString));
 
 
-  static bool isIOS() => Platform.isIOS;
+  static bool isIOS() => Platform.isIOS ?? false;
 
   // if (Platform.isAndroid) {
   // // Android-specific code

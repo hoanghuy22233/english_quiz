@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 class TrailLoading extends StatelessWidget {
-  final double? height;
-  final double? width;
-  const TrailLoading({Key? key, this.height, this.width}) : super(key: key);
+  final double height;
+  final double width;
+  const TrailLoading({Key key, this.height, this.width}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -20,9 +20,9 @@ class TrailLoading extends StatelessWidget {
 }
 
 class TrailError extends StatelessWidget {
-  final double? height;
-  final double? width;
-  const TrailError({Key? key, this.height, this.width}) : super(key: key);
+  final double height;
+  final double width;
+  const TrailError({Key key, this.height, this.width}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Center(

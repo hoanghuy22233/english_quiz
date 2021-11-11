@@ -6,13 +6,13 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  flutter_dotenv: ^5.0.2
+  flutter_dotenv: ^3.1.0
   flutter_bloc: ^7.0.0
   path_provider: ^2.0.1
   keyboard_dismisser: ^1.0.2
@@ -28,6 +28,7 @@ dependencies:
   webview_flutter: ^2.0.4
   toggle_switch: ^0.1.9
   font_awesome_flutter: ^9.0.0
+  image_picker: ^0.6.2+3
   double_back_to_close_app: ^2.0.1
   pull_to_refresh: ^1.6.4
   url_launcher: ^6.0.3
@@ -47,7 +48,6 @@ dependencies:
   flutter_widget_from_html_core: ^0.6.2
   expandable_text: ^2.2.0
   flutter_pdfview: ^1.0.0+10
-  image_picker: ^0.6.2+3
 
 #dependency_overrides:
 #  sqflite: 2.0.0+3

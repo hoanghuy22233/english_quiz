@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:english_quiz/bloc/test/test_bloc.dart';
 import 'package:english_quiz/screens/detail_test/english_detail_test_screen.dart';
 import 'package:english_quiz/widgets/bloc/bloc.dart';
-import 'package:english_quiz/widgets/quiz_options.dart';
 import 'package:english_quiz/widgets/widget_appbar_new.dart';
 import 'package:english_quiz/widgets/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -64,7 +63,7 @@ class _EnglishTestScreenState extends State<EnglishTestScreen> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => EnglishDetailTestScreen(state.test[index].id!, state.test[index]),
+                                      builder: (context) => EnglishDetailTestScreen(state.test[index].id, state.test[index]),
                                     ));
                               },
                               child: Container(
@@ -101,7 +100,7 @@ class _EnglishTestScreenState extends State<EnglishTestScreen> {
                                             // color: Colors.white,
                                               width: MediaQuery.of(context).size.width,
                                               padding: EdgeInsets.all(22),
-                                              child: Text(state.test[index].title!,maxLines: 2, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)),
+                                              child: Text(state.test[index].title,maxLines: 2, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)),
                                         )
 
                                       ],

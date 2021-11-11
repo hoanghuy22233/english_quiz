@@ -3,7 +3,6 @@ import 'package:english_quiz/bloc/result/result_bloc.dart';
 import 'package:english_quiz/bloc/test/test_bloc.dart';
 import 'package:english_quiz/screens/quiz/quiz_finished.dart';
 import 'package:english_quiz/widgets/bloc/bloc.dart';
-import 'package:english_quiz/widgets/quiz_options.dart';
 import 'package:english_quiz/widgets/widget_appbar_new.dart';
 import 'package:english_quiz/widgets/widget_count_down.dart';
 import 'package:english_quiz/widgets/widget_my_radio_group.dart';
@@ -116,9 +115,9 @@ class _KnowDetailTestScreenState extends State<KnowDetailTestScreen> with Ticker
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          widget.test.title!.length <= 25
-                                              ? widget.test.title!
-                                              : widget.test.title!
+                                          widget.test.title.length <= 25
+                                              ? widget.test.title
+                                              : widget.test.title
                                               .substring(0, 25) +
                                               '...',style:AppStyle.DEFAULT_MEDIUM.copyWith(
                                             color: Colors.white),maxLines: 2,
@@ -168,7 +167,7 @@ class _KnowDetailTestScreenState extends State<KnowDetailTestScreen> with Ticker
                                   state.question[_currentIndex].content!=null?
                                   Expanded(
                                     child:
-                                    state.question[_currentIndex].title!.length>=5?
+                                    state.question[_currentIndex].title.length>=5?
                                     ExpandableText(
                                       HtmlUnescape().convert(
                                           state.question[_currentIndex].title!)+ " " + HtmlUnescape().convert(

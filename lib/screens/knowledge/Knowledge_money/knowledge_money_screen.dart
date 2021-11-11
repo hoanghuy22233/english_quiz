@@ -7,7 +7,6 @@ import 'package:english_quiz/screens/detail_pdf/pdf_screen.dart';
 import 'package:english_quiz/screens/detail_test/english_detail_test_screen.dart';
 import 'package:english_quiz/widgets/bloc/bloc.dart';
 import 'package:english_quiz/widgets/bloc/widget_bloc_theory_container.dart';
-import 'package:english_quiz/widgets/quiz_options.dart';
 import 'package:english_quiz/widgets/widget_appbar_new.dart';
 import 'package:english_quiz/widgets/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -63,11 +62,11 @@ class _KnowMoneyScreenState extends State<KnowMoneyScreen> {
                         itemBuilder: (BuildContext context, int index) {
                           return InkWell(
                             onTap: (){
-                              Platform.isIOS? _openUrl(theorys[index].content!):
+                              Platform.isIOS? _openUrl(theorys[index].content):
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => PdfScreen(theorys[index].content!),
+                                    builder: (context) => PdfScreen(theorys[index].content),
                                   ));
                             },
                             child: Container(
@@ -104,7 +103,7 @@ class _KnowMoneyScreenState extends State<KnowMoneyScreen> {
                                           // color: Colors.white,
                                             width: MediaQuery.of(context).size.width,
                                             padding: EdgeInsets.all(22),
-                                            child: Text(theorys[index].title!,maxLines: 2, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)),
+                                            child: Text(theorys[index].title,maxLines: 2, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)),
                                       )
 
                                     ],

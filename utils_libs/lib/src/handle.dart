@@ -6,7 +6,7 @@ import '../utils_libs.dart';
 class Handle<T>{
   Handle._();
 
-  static String? getPath(Map<String, String> path) => path[PreferencesKey.BASE_URL];
+  static String getPath(Map<String, String> path) => path[PreferencesKey.BASE_URL];
 
   static findItemArrayObject(_elements) => _elements.firstWhere((element) => element['isAdmin'] == true, orElse: () => null);
 
@@ -33,15 +33,13 @@ class Handle<T>{
 
   static isEqualempty(item) => item == null ? [] : item;
 
-
-
-  // static T stringToEnum<T>(String str, Iterable<T> values) {
-  //   return values.firstWhere(
-  //         (value) => value.toString().split('.')[1] == str,
-  //     orElse: () => [0],
-  //   );
-  // }
-  // Size size = stringToEnum<Size>("medium", Size.values);
+  static T stringToEnum<T>(String str, Iterable<T> values) {
+    return values.firstWhere(
+          (value) => value.toString().split('.')[1] == str,
+      orElse: () => null,
+    );
+  }
+  Size size = stringToEnum<Size>("medium", Size.values);
 
   static String handleIsnull(str) => str != null ? str.toString() : '0';
 

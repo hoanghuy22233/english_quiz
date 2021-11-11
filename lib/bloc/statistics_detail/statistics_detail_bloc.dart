@@ -21,7 +21,7 @@ class StatisticsDetailBloc extends Bloc<StatisticsDetailEvent, StatisticsDetailS
       final response = await _userRepository.getDetailStatistics(id: id);
       // ignore: unrelated_type_equality_checks
       if(response.status == BASE_URL.SUCCESS){
-        yield UpdateStatisticsDetailState((response.data!));
+        yield UpdateStatisticsDetailState((response.data));
       }
     }catch(e){
       throw e;

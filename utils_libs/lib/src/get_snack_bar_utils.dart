@@ -8,7 +8,7 @@ class GetSnackBarUtils {
   static SnackStyle _snackStyle = SnackStyle.FLOATING;
   static SnackPosition _snackPosition = SnackPosition.BOTTOM;
   static bool _isDismissible = false;
-  static Duration _progressDuration = Duration(days: 365);
+  static Duration _progressDuration = Duration(seconds: 15);
   static Duration _stateDuration = Duration(seconds: 1);
   static Duration _stateDurationDelay = Duration(seconds: 2);
   static Color _backgroundColor = COLORS.PRIMARY_COLOR;
@@ -19,7 +19,7 @@ class GetSnackBarUtils {
   static Color _informationColor = Colors.blue;
 
   static createProgress() {
-    if (Get.isSnackbarOpen!) {
+    if (Get.isSnackbarOpen) {
       Get.back();
     }
     Get.rawSnackbar(
@@ -33,8 +33,8 @@ class GetSnackBarUtils {
         isDismissible: _isDismissible);
   }
 
-  static Future<void> createSuccess({String? message}) async {
-    if (Get.isSnackbarOpen!) {
+  static Future<void> createSuccess({String message}) async {
+    if (Get.isSnackbarOpen) {
       Get.back();
     }
     Get.rawSnackbar(
@@ -44,9 +44,9 @@ class GetSnackBarUtils {
             : MESSAGES.SUCCESS,
         icon: Center(
             child: Icon(
-              Icons.check,
-              color: _successColor,
-            )),
+          Icons.check,
+          color: _successColor,
+        )),
         duration: _stateDuration,
         backgroundColor: _backgroundColor,
         snackStyle: _snackStyle,
@@ -55,20 +55,20 @@ class GetSnackBarUtils {
     return await Future.delayed(_stateDurationDelay);
   }
 
-  static createFailure({String? message}) {
-    if (Get.isSnackbarOpen!) {
+  static createFailure({String message}) {
+    if (Get.isSnackbarOpen) {
       Get.back();
     }
     Get.rawSnackbar(
         title: MESSAGES.FAIL,
         message: message != null && message.isNotEmpty
-            ? message
-            : MESSAGES.FAIL,
+          ? message
+          : MESSAGES.FAIL,
         icon: Center(
             child: Icon(
-              Icons.error,
-              color: _failureColor,
-            )),
+          Icons.error,
+          color: _failureColor,
+        )),
         duration: Duration(seconds: 2),
         backgroundColor: _backgroundColor,
         snackStyle: _snackStyle,
@@ -76,8 +76,8 @@ class GetSnackBarUtils {
         isDismissible: _isDismissible);
   }
 
-  static createError({String? message}) {
-    if (Get.isSnackbarOpen!) {
+  static createError({String message}) {
+    if (Get.isSnackbarOpen) {
       Get.back();
     }
     Get.rawSnackbar(
@@ -87,9 +87,9 @@ class GetSnackBarUtils {
             : MESSAGES.FAIL,
         icon: Center(
             child: Icon(
-              Icons.error,
-              color: _errorColor,
-            )),
+          Icons.error,
+          color: _errorColor,
+        )),
         duration: Duration(seconds: 2),
         backgroundColor: _backgroundColor,
         snackStyle: _snackStyle,
@@ -97,8 +97,8 @@ class GetSnackBarUtils {
         isDismissible: _isDismissible);
   }
 
-  static createWarning({String? message}) {
-    if (Get.isSnackbarOpen!) {
+  static createWarning({String message}) {
+    if (Get.isSnackbarOpen) {
       Get.back();
     }
     Get.rawSnackbar(
@@ -108,9 +108,9 @@ class GetSnackBarUtils {
             : MESSAGES.WARNING,
         icon: Center(
             child: Icon(
-              Icons.warning,
-              color: _warningColor,
-            )),
+          Icons.warning,
+          color: _warningColor,
+        )),
         duration: Duration(seconds: 2),
         backgroundColor: _backgroundColor,
         snackStyle: _snackStyle,
@@ -118,8 +118,8 @@ class GetSnackBarUtils {
         isDismissible: _isDismissible);
   }
 
-  static createInformation({String? message}) {
-    if (Get.isSnackbarOpen!) {
+  static createInformation({String message}) {
+    if (Get.isSnackbarOpen) {
       Get.back();
     }
     Get.rawSnackbar(
@@ -129,9 +129,9 @@ class GetSnackBarUtils {
             : MESSAGES.NOTIFICATION,
         icon: Center(
             child: Icon(
-              Icons.notifications,
-              color: _informationColor,
-            )),
+          Icons.notifications,
+          color: _informationColor,
+        )),
         duration: Duration(seconds: 2),
         backgroundColor: _backgroundColor,
         snackStyle: _snackStyle,
@@ -140,7 +140,7 @@ class GetSnackBarUtils {
   }
 
   static removeSnackBar() {
-    if (Get.isSnackbarOpen!) {
+    if (Get.isSnackbarOpen) {
       Get.back();
     }
   }
