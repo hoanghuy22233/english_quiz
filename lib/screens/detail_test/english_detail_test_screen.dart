@@ -67,7 +67,7 @@ class _EnglishDetailTestScreenState extends State<EnglishDetailTestScreen>
             builder: (context, state) {
               if (state is UpdateDetailQuestionsState) {
                 Questions question = state.question[_currentIndex];
-                final List<dynamic> options = question.incorrectAnswers!;
+                final List<dynamic> options = question.incorrectAnswers;
                 if (!options.contains(question.answer)) {
                   options.add(question.answer);
                   options.shuffle();
@@ -116,9 +116,9 @@ class _EnglishDetailTestScreenState extends State<EnglishDetailTestScreen>
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            widget.test.title!.length <= 25
-                                                ? widget.test.title!
-                                                : widget.test.title!
+                                            widget.test.title.length <= 25
+                                                ? widget.test.title
+                                                : widget.test.title
                                                         .substring(0, 25) +
                                                     '...',
                                             style: AppStyle.DEFAULT_MEDIUM
@@ -179,23 +179,22 @@ class _EnglishDetailTestScreenState extends State<EnglishDetailTestScreen>
                                 ),
                                 Row(
                                   children: [
-                                    state.question[_currentIndex].content !=
-                                            null
+                                    state.question[_currentIndex].content != null
                                         ? Expanded(
                                             child: state.question[_currentIndex]
-                                                        .title!.length >=
+                                                        .title.length >=
                                                     5
                                                 ? ExpandableText(
                                                     HtmlUnescape().convert(state
                                                             .question[
                                                                 _currentIndex]
-                                                            .title!) +
+                                                            .title) +
                                                         " " +
                                                         HtmlUnescape().convert(
                                                             state
                                                                 .question[
                                                                     _currentIndex]
-                                                                .content!),
+                                                                .content),
                                                     expandText: 'Xem thêm',
                                                     collapseText: 'Thu gọn',
                                                     maxLines: 5,
@@ -204,7 +203,7 @@ class _EnglishDetailTestScreenState extends State<EnglishDetailTestScreen>
                                                 : ExpandableText(
                                                     state
                                                         .question[_currentIndex]
-                                                        .content!,
+                                                        .content,
                                                     expandText: 'Xem thêm',
                                                     collapseText: 'Thu gọn',
                                                     maxLines: 5,
@@ -215,7 +214,7 @@ class _EnglishDetailTestScreenState extends State<EnglishDetailTestScreen>
                                             child: Text(
                                               HtmlUnescape().convert(state
                                                   .question[_currentIndex]
-                                                  .title!),
+                                                  .title),
                                               softWrap: true,
                                               style: MediaQuery.of(context)
                                                           .size

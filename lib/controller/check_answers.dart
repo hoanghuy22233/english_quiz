@@ -18,7 +18,7 @@ class CheckAnswersPage extends StatelessWidget {
       context: context,
       builder: (context) => AlertDialog(
         title: Text('Giải thích câu'),
-        content: questions![index].note!=null?Text(questions![index].note!,style: TextStyle(color: Colors.black,fontSize: 12)):Text("Chưa có giải thích",style: TextStyle(color: Colors.black,fontSize: 12),),
+        content: questions![index].note!=null?Text(questions![index].note,style: TextStyle(color: Colors.black,fontSize: 12)):Text("Chưa có giải thích",style: TextStyle(color: Colors.black,fontSize: 12),),
         actions:[
           ElevatedButton(
             onPressed: () => Navigator.of(context).pop(false),
@@ -95,7 +95,7 @@ class CheckAnswersPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text('${index+1}. ' + HtmlUnescape().convert(question.title!), style: AppStyle.DEFAULT_MEDIUM.copyWith(
+            Text('${index+1}. ' + HtmlUnescape().convert(question.title), style: AppStyle.DEFAULT_MEDIUM.copyWith(
                 color: Colors.black,
                 fontWeight: FontWeight.w500),),
             SizedBox(height: 5.0),
@@ -108,7 +108,7 @@ class CheckAnswersPage extends StatelessWidget {
             correct ? Container(): Text.rich(TextSpan(
               children: [
                 TextSpan(text: "Đáp án: "),
-                TextSpan(text: HtmlUnescape().convert(question.answer!) , style: AppStyle.DEFAULT_MEDIUM)
+                TextSpan(text: HtmlUnescape().convert(question.answer) , style: AppStyle.DEFAULT_MEDIUM)
               ]
             ),style: AppStyle.DEFAULT_MEDIUM,),
             SizedBox(height: 5.0),

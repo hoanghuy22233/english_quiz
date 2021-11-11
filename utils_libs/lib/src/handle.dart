@@ -6,7 +6,7 @@ import '../utils_libs.dart';
 class Handle<T>{
   Handle._();
 
-  static String? getPath(Map<String, String> path) => path[PreferencesKey.BASE_URL];
+  static String getPath(Map<String, String> path) => path[PreferencesKey.BASE_URL];
 
   static findItemArrayObject(_elements) => _elements.firstWhere((element) => element['isAdmin'] == true, orElse: () => null);
 

@@ -64,7 +64,7 @@ class _KnowledgeMoneyTestScreenState extends State<KnowledgeMoneyTestScreen> {
                                     MaterialPageRoute(
                                       builder: (context) =>
                                           KnowDetailTestScreen(
-                                              state.test[index].id!,
+                                              state.test[index].id,
                                               state.test[index]),
                                     ));
                               },
@@ -116,7 +116,7 @@ class _KnowledgeMoneyTestScreenState extends State<KnowledgeMoneyTestScreen> {
                                                   .width,
                                               padding: EdgeInsets.all(22),
                                               child: Text(
-                                                state.test[index].title!,
+                                                state.test[index].title,
                                                 maxLines: 2,
                                                 style: TextStyle(
                                                     color: Colors.black,

@@ -23,7 +23,6 @@ class UserRepository {
   }
 
   //==========================================> GET <=========================================
-
   Future<ResponseDataStatus> getInfoUser() async => await RestClient(dio, baseUrl: dio.options.baseUrl).getInfoUser();
 
   Future<ResponseTheoryStatus> getTheory({required int type}) async => await RestClient(dio, baseUrl: dio.options.baseUrl).getTheory(type);
@@ -63,7 +62,7 @@ class UserRepository {
       await RestClient(dio, baseUrl: dio.options.baseUrl).postUpdateProfile(infoUser);
 
   Future<ResponseDataStatus> postImage({required File file, required String code, required String email, required String name}) async =>
-      await RestClient(dio, baseUrl: dio.options.baseUrl).postImage(file,code,email, name);
+      await RestClient(dio, baseUrl: dio.options.baseUrl).postImage(file, code, email, name);
 
   Future<ResponsePostResultStatus> postResult({required int id, required int idQ}) async => await RestClient(dio, baseUrl: dio.options.baseUrl).postResult(id,idQ);
 

@@ -4,11 +4,11 @@ part 'params_change_password.g.dart';
 @JsonSerializable()
 class ParamChangePassword {
   @JsonKey(name: "old_password")
-  String? oldPass;
+  String oldPass;
   @JsonKey(name: "password_new")
-  String? newPass;
+  String newPass;
   @JsonKey(name: "password_new_confirmation")
-  String? repeatPass;
+  String repeatPass;
 
   ParamChangePassword(
       {
@@ -23,7 +23,7 @@ class ParamChangePassword {
 
 @JsonSerializable()
 class ParamForgotPassword {
-  String? email;
+  String email;
 
   ParamForgotPassword(
       {
@@ -37,11 +37,11 @@ class ParamForgotPassword {
 @JsonSerializable()
 class ParamResetPassword {
   @JsonKey(name: "otp")
-  String? otp;
+  String otp;
   @JsonKey(name: "password")
-  String? newPass;
+  String newPass;
   @JsonKey(name: "password_confirmation")
-  String? repeatPass;
+  String repeatPass;
 
   ParamResetPassword(
       {

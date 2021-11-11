@@ -1,11 +1,13 @@
 // ignore: import_of_legacy_library_into_null_safe
 import 'dart:io';
 import 'dart:async';
+import 'package:english_quiz/bloc/login/login_bloc.dart';
+import 'package:english_quiz/widgets/widget_button.dart';
+import 'package:english_quiz/widgets/widget_dialog.dart';
+import 'package:english_quiz/widgets/widget_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:device_info/device_info.dart';
-import 'package:english_quiz/bloc/blocs.dart';
-import 'package:english_quiz/widgets/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:utils_libs/utils_libs.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -159,8 +161,8 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
       },
       child: Container(
         decoration: BoxDecoration(
-          color: COLORS.WHITE,
-          borderRadius: BorderRadius.circular(10)
+            color: COLORS.WHITE,
+            borderRadius: BorderRadius.circular(10)
         ),
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: Form(
@@ -260,52 +262,23 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
 
   _buildTextFieldUsername(LoginBloc bloc) {
     return BlocBuilder<LoginBloc, LoginState>(
-      builder: (context, state) {
-        return WidgetInput(
-          onChanged: (value) => bloc.add(CodeChanged(code: value)),
-          inputType: TextInputType.number,
-          focusNode: _emailFocusNode,
-          isBorder: false,
-          maxLength: 6,
-          labelText: MESSAGES.CODE_LOGIN,
-          errorText: state.code.invalid ? MESSAGES.CODE_ERROR : null,
-          leadIcon: Icon(Icons.person, color: COLORS.PRIMARY_COLOR,),
-        );
-      }
+        builder: (context, state) {
+          return WidgetInput(
+            onChanged: (value) => bloc.add(CodeChanged(code: value)),
+            inputType: TextInputType.number,
+            focusNode: _emailFocusNode,
+            isBorder: false,
+            maxLength: 6,
+            labelText: MESSAGES.CODE_LOGIN,
+            errorText: state.code.invalid ? MESSAGES.CODE_ERROR : null,
+            leadIcon: Icon(Icons.person, color: COLORS.PRIMARY_COLOR,),
+          );
+        }
     );
   }
 
-  _textMe() async {
-    // Android
-    const uri = 'sms:0902183658?body=Tôi%20muốn%20đăng%20ký';
-    if (await canLaunch(uri)) {
-      await launch(uri);
-    } else {
-      // iOS
-      const uri = 'sms:0902183658?body=Tôi%20muốn%20đăng%20ký';
-      if (await canLaunch(uri)) {
-        await launch(uri);
-      } else {
-        throw 'Could not launch $uri';
-      }
-    }
-  }
 
-  Future<void> _launchUniversalLinkIos(String url) async {
-    if (await canLaunch(url)) {
-      final bool nativeAppLaunchSucceeded = await launch(
-        url,
-        forceSafariVC: false,
-        universalLinksOnly: true,
-      );
-      if (!nativeAppLaunchSucceeded) {
-        await launch(
-          url,
-          forceSafariVC: true,
-        );
-      }
-    }
-  }
+
 
 
   _Me(String url) async {

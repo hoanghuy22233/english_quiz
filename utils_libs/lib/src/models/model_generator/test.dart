@@ -8,14 +8,13 @@ part 'test.g.dart';
 @JsonSerializable()
 // ignore: must_be_immutable
 class Tests extends Equatable {
-  int? id, type, status;
-  String? title, content, note;
+  int id, type, status;
+  String title, content, note;
   dynamic answer;
   @JsonKey(name: "created_at")
-  String? createdAt;
+  String createdAt;
   @JsonKey(name: "updated_at")
-  String? updatedAt;
-  List<Questions>? questions;
+  String updatedAt;
 
   Tests(
       {this.id,
@@ -26,18 +25,18 @@ class Tests extends Equatable {
 
         this.answer,
       this.createdAt,
-      this.updatedAt,this.questions});
+      this.updatedAt});
 
   Tests copyWith(
-      {int? id,
+      {int id,
       type,
       status,
-      String? title,
+      String title,
       content,note,
-        List<String>? answer,
-      String? createdAt,
-      String? updatedAt,
-        List<Questions>? questions}) {
+        List<String> answer,
+      String createdAt,
+      String updatedAt,
+        List<Questions> questions}) {
     return Tests(
       id: id ?? this.id,
       status: status ?? this.status,
@@ -48,7 +47,6 @@ class Tests extends Equatable {
       answer: answer??this.answer,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
-      questions: questions??this.questions
     );
   }
 
@@ -57,8 +55,8 @@ class Tests extends Equatable {
 
   @override
   List<Object> get props => [
-        id!,status!,type!,title!,content!,answer,note!,
-        createdAt!,
-        updatedAt!,questions!
+        id,status,type,title,content,answer,note,
+        createdAt,
+        updatedAt,
       ];
 }

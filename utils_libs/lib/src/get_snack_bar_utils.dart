@@ -19,7 +19,7 @@ class GetSnackBarUtils {
   static Color _informationColor = Colors.blue;
 
   static createProgress() {
-    if (Get.isSnackbarOpen!) {
+    if (Get.isSnackbarOpen) {
       Get.back();
     }
     Get.rawSnackbar(
@@ -33,8 +33,8 @@ class GetSnackBarUtils {
         isDismissible: _isDismissible);
   }
 
-  static Future<void> createSuccess({String? message}) async {
-    if (Get.isSnackbarOpen!) {
+  static Future<void> createSuccess({String message}) async {
+    if (Get.isSnackbarOpen) {
       Get.back();
     }
     Get.rawSnackbar(
@@ -55,8 +55,8 @@ class GetSnackBarUtils {
     return await Future.delayed(_stateDurationDelay);
   }
 
-  static createFailure({String? message}) {
-    if (Get.isSnackbarOpen!) {
+  static createFailure({String message}) {
+    if (Get.isSnackbarOpen) {
       Get.back();
     }
     Get.rawSnackbar(
@@ -76,8 +76,8 @@ class GetSnackBarUtils {
         isDismissible: _isDismissible);
   }
 
-  static createError({String? message}) {
-    if (Get.isSnackbarOpen!) {
+  static createError({String message}) {
+    if (Get.isSnackbarOpen) {
       Get.back();
     }
     Get.rawSnackbar(
@@ -97,8 +97,8 @@ class GetSnackBarUtils {
         isDismissible: _isDismissible);
   }
 
-  static createWarning({String? message}) {
-    if (Get.isSnackbarOpen!) {
+  static createWarning({String message}) {
+    if (Get.isSnackbarOpen) {
       Get.back();
     }
     Get.rawSnackbar(
@@ -118,8 +118,8 @@ class GetSnackBarUtils {
         isDismissible: _isDismissible);
   }
 
-  static createInformation({String? message}) {
-    if (Get.isSnackbarOpen!) {
+  static createInformation({String message}) {
+    if (Get.isSnackbarOpen) {
       Get.back();
     }
     Get.rawSnackbar(
@@ -140,7 +140,7 @@ class GetSnackBarUtils {
   }
 
   static removeSnackBar() {
-    if (Get.isSnackbarOpen!) {
+    if (Get.isSnackbarOpen) {
       Get.back();
     }
   }

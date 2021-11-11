@@ -7,31 +7,31 @@ part 'info_user.g.dart';
 // ignore: must_be_immutable
 class InfoUser extends Equatable {
   @JsonKey(name: "status")
-  int? statusUser;
-  int? id, gender;
-  List<String>? type;
-  String? name, code, otp, phone, image, address, email;
+  int statusUser;
+  int id, gender;
+  List<String> type;
+  String name, code, otp, phone, image, address, email;
   @JsonKey(name: "device_code")
-  String? deviceCode;
+  String deviceCode;
   @JsonKey(name: "email_verified_at")
-  String? emailVerifiedAt;
+  String emailVerifiedAt;
   @JsonKey(name: "created_at")
-  String? createdAt;
+  String createdAt;
   @JsonKey(name: "updated_at")
-  String? updatedAt;
+  String updatedAt;
 
   InfoUser({this.id, this.gender, this.statusUser, this.type, this.name, this.code, this.otp, this.phone, this.image,
     this.address, this.email, this.deviceCode, this.emailVerifiedAt, this.createdAt, this.updatedAt});
 
   InfoUser copyWith(
       {
-        int? status,
-        int? id, gender, type,
-        String? name, code, otp, phone, image, address, email,
-        String? deviceCode,
-        String? emailVerifiedAt,
-        String? createdAt,
-        String? updatedAt
+        int status,
+        int id, gender, type,
+        String name, code, otp, phone, image, address, email,
+        String deviceCode,
+        String emailVerifiedAt,
+        String createdAt,
+        String updatedAt
       }) {
     return InfoUser(
       id: id ?? this.id,
@@ -59,7 +59,7 @@ class InfoUser extends Equatable {
 
   @override
   List<Object> get props => [
-    id!, gender!, statusUser!, type!, name!, code!, otp!, phone!, image!, address!, email!, deviceCode!,
-    emailVerifiedAt!, createdAt!, updatedAt!
+    id, gender, statusUser, type, name, code, otp, phone, image, address, email, deviceCode,
+    emailVerifiedAt, createdAt, updatedAt
   ];
 }

@@ -6,9 +6,9 @@ import 'package:utils_libs/utils_libs.dart';
 part 'response_test.g.dart';
 @JsonSerializable()
 class ResponseTests {
-  bool? status;
-  String? message;
-  List<Tests>? data;
+  bool status;
+  String message;
+  List<Tests> data;
   ResponseTests({this.status, this.message, this.data});
   factory ResponseTests.fromJson(Map<String, dynamic> json) =>
       _$ResponseTestsFromJson(json);

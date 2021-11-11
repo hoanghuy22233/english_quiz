@@ -9,7 +9,7 @@ class CodeUser extends FormzInput<String, CodeUserValidationError> {
   static final _otpRegex = RegExp(r'[0-9]{6,6}$');
 
   @override
-  CodeUserValidationError? validator(String value) {
+  CodeUserValidationError validator(String value) {
     return _otpRegex.hasMatch(value) ? null : CodeUserValidationError.invalid;
   }
 }

@@ -120,7 +120,7 @@ class WidgetItemContainer extends StatelessWidget {
                 // ),
                 AppValue.vSpace(7),
                 Text(
-                  AppValue.formatStringDate(createdDate) ?? DateTime.now().toString(),
+                  AppValue.formatStringDate(createdDate)!,
                   style: AppStyle.DEFAULT_SMALLs,
                 )
               ],

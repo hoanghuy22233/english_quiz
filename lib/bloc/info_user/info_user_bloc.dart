@@ -48,9 +48,9 @@ class InfoUserBloc extends Bloc<InfoUserEvent, InfoUserState>{
   Stream<InfoUserState> _mapAddDataInfoUserState() async* {
     try {
       final infoUser = await this.userRepository.getInfoUser();
-      if(infoUser.data!.user!.statusUser! != BASE_URL.LOCK){
-        await _localRepository.saveUserID(infoUser.data!.user!.id.toString());
-        yield UpdateInfoUserState(infoUser.data!.user!);
+      if(infoUser.data.user.statusUser != BASE_URL.LOCK){
+        await _localRepository.saveUserID(infoUser.data.user.id.toString());
+        yield UpdateInfoUserState(infoUser.data.user);
       }
     } catch (e) {
       yield ErrorState();

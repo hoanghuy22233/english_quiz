@@ -39,7 +39,7 @@ class WidgetCachedImage extends StatelessWidget {
 class WidgetAvatar extends StatelessWidget {
   final String? url;
   final double? height, width;
-  WidgetAvatar({this.url, this.height = 100, this.width = 100});
+  WidgetAvatar({this.url, this.height, this.width});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -54,11 +54,11 @@ class WidgetAvatar extends StatelessWidget {
         child: Center(
           child: CachedNetworkImage(
             imageUrl: url ?? IMAGES.LOGO_APP,
-            height: height,
-            width: width,
+            height: 100,
+            width: 100,
             fit: BoxFit.fill,
             placeholder: (context, url) => CircularProgressIndicator(),
-            errorWidget: (context, url, error) => WidgetContainerImage(image: IMAGES.LOGO_APP, height: 100, width: 100,),
+            errorWidget: (context, url, error) => WidgetContainerImage(image: IMAGES.LOGO_APP, height: MediaQuery.of(context).size.width*0.1, width: MediaQuery.of(context).size.width*0.1,),
           ),
         ),
       ),

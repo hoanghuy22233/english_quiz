@@ -42,7 +42,7 @@ class _NotificationDetailScreenState extends State<NotificationDetailScreen> {
                 Align(
                   alignment: Alignment.centerRight,
                   child: Text(
-                    AppValue.formatStringDate(detailNotification.createdAt!) ?? DateTime.now().toString(),
+                    AppValue.formatStringDate(detailNotification.createdAt!)!,
                     style: AppStyle.DEFAULT_SMALLs,
                   ),
                 ),

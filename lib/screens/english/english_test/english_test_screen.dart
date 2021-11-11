@@ -64,7 +64,7 @@ class _EnglishTestScreenState extends State<EnglishTestScreen> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => EnglishDetailTestScreen(state.test[index].id!, state.test[index]),
+                                      builder: (context) => EnglishDetailTestScreen(state.test[index].id, state.test[index]),
                                     ));
                               },
                               child: Container(
@@ -101,7 +101,7 @@ class _EnglishTestScreenState extends State<EnglishTestScreen> {
                                             // color: Colors.white,
                                               width: MediaQuery.of(context).size.width,
                                               padding: EdgeInsets.all(22),
-                                              child: Text(state.test[index].title!,maxLines: 2, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)),
+                                              child: Text(state.test[index].title,maxLines: 2, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)),
                                         )
 
                                       ],

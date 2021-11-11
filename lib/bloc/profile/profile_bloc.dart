@@ -52,13 +52,13 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         final type = state.infoUser!.type;
         final name = state.infoUser!.name;
 
-        final response = await _userRepository!.postImage(file: event.avatar, code: code!, email: email!, name: name!);
+        final response = await _userRepository!.postImage(file: event.avatar, code: code, email: email, name: name);
 
         if (response.status == BASE_URL.SUCCESS) {
           yield state.copyWith(isLoading: false);
           await GetSnackBarUtils.createSuccess(message: response.message);
-          await shareLocal.putString(PreferencesKey.USER_CODE, response.data!.user!.code!);
-          await shareLocal.putString(PreferencesKey.USER_EMAIL, response.data!.user!.email!);
+          await shareLocal.putString(PreferencesKey.USER_CODE, response.data!.user!.code);
+          await shareLocal.putString(PreferencesKey.USER_EMAIL, response.data!.user!.email);
           blocInfo.add(InitDataEvent());
           blocInfo.add(AddDataEvent());
         } else {

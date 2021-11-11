@@ -6,9 +6,9 @@ import 'package:utils_libs/utils_libs.dart';
 part 'response_detail_question.g.dart';
 @JsonSerializable()
 class ResponseDetailQuestion {
-  bool? status;
-  String? message;
-  detailData? data;
+  bool status;
+  String message;
+  detailData data;
   ResponseDetailQuestion({this.status, this.message, this.data});
   factory ResponseDetailQuestion.fromJson(Map<String, dynamic> json) =>
       _$ResponseDetailQuestionFromJson(json);

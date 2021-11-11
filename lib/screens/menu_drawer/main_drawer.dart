@@ -77,7 +77,7 @@ class MainDrawer extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          WidgetAvatar(url: state.infoUser.image ?? ''),
+                          WidgetAvatar(url: state.infoUser.image,height: 60,width: 60,),
                           AppValue.vSpaceTiny,
                           Container(
                             height: 20,
@@ -93,7 +93,7 @@ class MainDrawer extends StatelessWidget {
                           Container(
                             height: 20,
                             child: Text(
-                              state.infoUser.email!,
+                              state.infoUser.email,
                               overflow: TextOverflow.fade,
                               softWrap: false,
                               style: AppStyle.DEFAULT_SMALLs.copyWith(color: COLORS.WHITE),

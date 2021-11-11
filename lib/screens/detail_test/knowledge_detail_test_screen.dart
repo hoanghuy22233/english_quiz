@@ -69,7 +69,7 @@ class _KnowDetailTestScreenState extends State<KnowDetailTestScreen> with Ticker
           builder: (context, state){
             if(state is UpdateDetailQuestionsState){
               Questions question = state.question[_currentIndex];
-              final List<dynamic> options = question.incorrectAnswers!;
+              final List<dynamic> options = question.incorrectAnswers;
               if (!options.contains(question.answer)) {
                 options.add(question.answer);
                 options.shuffle();
@@ -116,9 +116,9 @@ class _KnowDetailTestScreenState extends State<KnowDetailTestScreen> with Ticker
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          widget.test.title!.length <= 25
-                                              ? widget.test.title!
-                                              : widget.test.title!
+                                          widget.test.title.length <= 25
+                                              ? widget.test.title
+                                              : widget.test.title
                                               .substring(0, 25) +
                                               '...',style:AppStyle.DEFAULT_MEDIUM.copyWith(
                                             color: Colors.white),maxLines: 2,
@@ -168,18 +168,18 @@ class _KnowDetailTestScreenState extends State<KnowDetailTestScreen> with Ticker
                                   state.question[_currentIndex].content!=null?
                                   Expanded(
                                     child:
-                                    state.question[_currentIndex].title!.length>=5?
+                                    state.question[_currentIndex].title.length>=5?
                                     ExpandableText(
                                       HtmlUnescape().convert(
-                                          state.question[_currentIndex].title!)+ " " + HtmlUnescape().convert(
-                                          state.question[_currentIndex].content!),
+                                          state.question[_currentIndex].title)+ " " + HtmlUnescape().convert(
+                                          state.question[_currentIndex].content),
                                       expandText: 'Xem thêm',
                                       collapseText: 'Thu gọn',
                                       maxLines: 5,
                                       linkColor: Colors.blue,
                                     )
                                         :ExpandableText(
-                                      state.question[_currentIndex].content!,
+                                      state.question[_currentIndex].content,
                                       expandText: 'Xem thêm',
                                       collapseText: 'Thu gọn',
                                       maxLines: 5,
@@ -188,7 +188,7 @@ class _KnowDetailTestScreenState extends State<KnowDetailTestScreen> with Ticker
                                   ): Expanded(
                                     child: Text(
                                       HtmlUnescape().convert(
-                                          state.question[_currentIndex].title!),
+                                          state.question[_currentIndex].title),
                                       softWrap: true,
                                       style: MediaQuery.of(context).size.width > 800 ? _questionStyle.copyWith(fontSize: 30.0)
                                           : _questionStyle,
