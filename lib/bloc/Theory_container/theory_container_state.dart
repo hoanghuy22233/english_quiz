@@ -5,10 +5,13 @@ abstract class TheoryContainerState extends Equatable{
   List<Object?> get props => [];
 }
 
-class UpdateContainerTheory extends TheoryContainerState{
-  final ResponseTheoryDeatilStatus theorys;
-  UpdateContainerTheory({required this.theorys});
-  UpdateContainerTheory.initial() : this(theorys: ResponseTheoryDeatilStatus(data: [], theory: Theorys()));
+class InitTheoryContainerState extends TheoryContainerState{}
+
+class TheoryContainerLoadingState extends TheoryContainerState{}
+
+class UpdateTheoryContainerState extends TheoryContainerState{
+  final List<Theorys> theory;
+  UpdateTheoryContainerState(this.theory);
   @override
-  List<Object> get props => [theorys];
+  List<Object?> get props => [theory];
 }
