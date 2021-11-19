@@ -1,5 +1,4 @@
 // ignore: import_of_legacy_library_into_null_safe
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:utils_libs/utils_libs.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv; // ignore: import_of_legacy_library_into_null_safe
 import 'dart:async';
@@ -32,7 +31,7 @@ class EventRepositoryStorage implements EventRepository {
     if (response!=null) {
       return response;
     } else {
-      await shareLocal.putString(PreferencesKey.USER, dotenv.get(PreferencesKey.TOKEN));
+      await shareLocal.putString(PreferencesKey.USER, DotEnv.env[PreferencesKey.TOKEN]!);
       return await shareLocal.getString(PreferencesKey.USER);
     }
   }

@@ -15,6 +15,7 @@ class Tests extends Equatable {
   String createdAt;
   @JsonKey(name: "updated_at")
   String updatedAt;
+  List<Questions> questions;
 
   Tests(
       {this.id,
@@ -25,7 +26,7 @@ class Tests extends Equatable {
 
         this.answer,
       this.createdAt,
-      this.updatedAt});
+      this.updatedAt,this.questions});
 
   Tests copyWith(
       {int id,
@@ -47,6 +48,7 @@ class Tests extends Equatable {
       answer: answer??this.answer,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
+      questions: questions??this.questions
     );
   }
 
@@ -57,6 +59,6 @@ class Tests extends Equatable {
   List<Object> get props => [
         id,status,type,title,content,answer,note,
         createdAt,
-        updatedAt,
+        updatedAt,questions
       ];
 }

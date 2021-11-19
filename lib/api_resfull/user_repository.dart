@@ -1,5 +1,4 @@
 import 'package:english_quiz/storages/share_local.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:utils_libs/utils_libs.dart'; // ignore: import_of_legacy_library_into_null_safe
 import 'dart:io';
 import 'dart:async';
@@ -14,15 +13,17 @@ class UserRepository {
   final _controllerUser = StreamController<DataUser>();
   UserRepository(){
     statusUser.listen((event) {
-     if(event.token == dotenv.get(PreferencesKey.TOKEN)){
+     if(event.token == DotEnv.env[PreferencesKey.TOKEN]!){
        dio = DioProvider.instance();
      }else{
         dio = DioProvider.instance(token: shareLocal.getString(PreferencesKey.TOKEN));
+       // dio = DioProvider.instance(token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjFjY2IwNWQ2ODY0MjIzODkwZjBlYTBlMzQyZjY0YjcwNzk5M2ExODQ2MTUxNTU3ZjhkODQwODYyZWU4N2JiNDI2ZmQ4YzRiNGZlNzE2MDVhIn0.eyJhdWQiOiIxIiwianRpIjoiMWNjYjA1ZDY4NjQyMjM4OTBmMGVhMGUzNDJmNjRiNzA3OTkzYTE4NDYxNTE1NTdmOGQ4NDA4NjJlZTg3YmI0MjZmZDhjNGI0ZmU3MTYwNWEiLCJpYXQiOjE2MzM5NjM4ODksIm5iZiI6MTYzMzk2Mzg4OSwiZXhwIjoxNjY1NDk5ODg5LCJzdWIiOiI0ODIiLCJzY29wZXMiOltdfQ.oZtpvecodK7pHnhEgkM8Izqv01jStDLFXsk5GNUFo3yHP0wRZKqhBpJZSEqXdEv_dNrkIbVoDaMGMqSSCscclLTbZK8jlUeIExfXl9Ic4yhz9KLRDK3cxSpdYdM_-dkamG9qnJWvAkljnRMenxOqUoF-NDtAaG1iLBeGWDxrlRcawP6m040ejpFC8BGMKucRhLRDj7zpeaBshvJjHzAJp-jhSYkBZKnAsTsGAezA0wy1ZCQfknyZ0LT_KWwXneC_0--1TDB-720aGKlJ2JiiJj3nRncuCiw8uRSzP49qlRxSEo4cLgub9crCvdZh8RJiySa-iKS13HOt2XD5AZalg9ZvbZ38OdkxIe4GHlozBR1x0KNjxb3F2PtgJWW4gCrmaL82C3f9DwNx2RjzNrBYbFDbOgu-LKT3oamyYYQ26-MMTjl0nQY_AmmZFKQ0Ig_6hZFRUXzSPyEuaqWGv4gpxIc8aJTVi6bPpe3eyT9FIggBVri92c87eRthwMrNZhpcgpLfUV3OwNclwl6rK8WwTdbRZ5vkBBk_ullfAiMR4GObqJwBMu6dhArYDaftXEauqx-nHdotSDPJPhsjjt4vUwhvvI13JYN348C9tYGrDfdSLqGqG6PPiN7VeiuPz4Y2qIelsYWk1mbtEA_d4TCKQWtgC5x6NcM1J08xlxB4odw');
       }
     });
   }
 
   //==========================================> GET <=========================================
+
   Future<ResponseDataStatus> getInfoUser() async => await RestClient(dio, baseUrl: dio.options.baseUrl).getInfoUser();
 
   Future<ResponseTheoryStatus> getTheory({required int type}) async => await RestClient(dio, baseUrl: dio.options.baseUrl).getTheory(type);
@@ -62,7 +63,7 @@ class UserRepository {
       await RestClient(dio, baseUrl: dio.options.baseUrl).postUpdateProfile(infoUser);
 
   Future<ResponseDataStatus> postImage({required File file, required String code, required String email, required String name}) async =>
-      await RestClient(dio, baseUrl: dio.options.baseUrl).postImage(file, code, email, name);
+      await RestClient(dio, baseUrl: dio.options.baseUrl).postImages(image: file, code: code, email: email, name: name);
 
   Future<ResponsePostResultStatus> postResult({required int id, required int idQ}) async => await RestClient(dio, baseUrl: dio.options.baseUrl).postResult(id,idQ);
 

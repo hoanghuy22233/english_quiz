@@ -2,8 +2,6 @@ import 'dart:math';
 
 import 'package:english_quiz/bloc/test/test_bloc.dart';
 import 'package:english_quiz/screens/detail_test/knowledge_detail_test_screen.dart';
-import 'package:english_quiz/widgets/quiz_options.dart';
-import 'package:english_quiz/widgets/widget_appbar_new.dart';
 import 'package:english_quiz/widgets/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:utils_libs/utils_libs.dart'; // ignore: import_of_legacy_library_into_null_safe

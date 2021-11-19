@@ -53,7 +53,7 @@ class _PolicyScreenState extends State<PolicyScreen> {
                               scrollDirection: Axis.vertical,
                               itemCount: data.length,
                               itemBuilder: (context, index) {
-                                return item(title: data[index].title!, content: data[index].content!);
+                                return item(title: data[index].title, content: data[index].content);
                               },
                             ),
                           );

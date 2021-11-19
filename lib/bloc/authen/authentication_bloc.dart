@@ -1,5 +1,4 @@
 // ignore: import_of_legacy_library_into_null_safe
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:utils_libs/utils_libs.dart';
 import 'dart:async';
 import 'dart:convert';
@@ -43,7 +42,7 @@ class AuthenticationBloc
       yield* _mapAuthenticationStatusChangedToState(event);
     } else if (event is AuthenticationLogoutRequested) {
       AppNavigator.navigateLogout();
-      await _localRepository.saveUser(dotenv.get(PreferencesKey.TOKEN));
+      await _localRepository.saveUser(DotEnv.env[PreferencesKey.TOKEN]!);
       await shareLocal.putString(PreferencesKey.TOKEN, '');
       await shareLocal.putString(PreferencesKey.USER_CODE, '');
       await shareLocal.putString(PreferencesKey.USER_EMAIL, '');
@@ -66,11 +65,11 @@ class AuthenticationBloc
   Stream<AuthenticationState> _mapAuthenticationStatusChangedToState(AuthenticationStatusChanged event) async* {
     try{
       final response = await _localRepository.loadUser();
-      if (response != dotenv.get(PreferencesKey.TOKEN)) {
+      if (response != DotEnv.env[PreferencesKey.TOKEN]!) {
         _userRepository.addUser(DataUser.fromJson(json.decode(response)["data"]));
         yield AuthenticationState.authenticated();
       } else {
-        _userRepository.addUser(DataUser(token: dotenv.get(PreferencesKey.TOKEN)));
+        _userRepository.addUser(DataUser(token: DotEnv.env[PreferencesKey.TOKEN]!));
         yield AuthenticationState.unauthenticated();
       }
     }catch(e){

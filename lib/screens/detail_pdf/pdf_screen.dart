@@ -42,6 +42,9 @@ class _PdfScreenState extends State<PdfScreen> {
     Completer<File> completer = Completer();
     print("Start download file from internet!");
     try {
+      // "https://berlin2017.droidcon.cod.newthinking.net/sites/global.droidcon.cod.newthinking.net/files/media/documents/Flutter%20-%2060FPS%20UI%20of%20the%20future%20%20-%20DroidconDE%2017.pdf";
+      // final url = "https://pdfkit.org/docs/guide.pdf";
+      // final url = "http://www.pdf995.com/samples/pdf.pdf";
       final filename = content.substring(content.lastIndexOf("/") + 1);
       var request = await HttpClient().getUrl(Uri.parse(content));
       var response = await request.close();
@@ -82,16 +85,16 @@ class _PdfScreenState extends State<PdfScreen> {
            PDFView(
         filePath: get,
              enableSwipe: true,
-             autoSpacing: true,
-             pageFling: false,
+           //  swipeHorizontal: true,
+
+             autoSpacing: false,
+             pageFling: true,
              pageSnap: true,
-             fitPolicy: FitPolicy.HEIGHT,
+             fitPolicy: FitPolicy.BOTH,
              // preventLinkNavigation:
              // false, // if set
       )
-          : Center(
-        child: TrailLoading(height: MediaQuery.of(context).size.width*0.2, width: MediaQuery.of(context).size.width*0.2),
-      ),
+          : Center(child: CircularProgressIndicator()),
 
     );
 

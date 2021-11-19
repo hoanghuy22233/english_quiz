@@ -71,6 +71,6 @@ class Validator {
   }
 
   static isValidDob(String dob) {
-    return _dobRegExp.hasMatch(dob);
+      return _dobRegExp.hasMatch(dob);
   }
 }

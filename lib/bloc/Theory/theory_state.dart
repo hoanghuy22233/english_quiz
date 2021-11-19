@@ -8,7 +8,7 @@ abstract class TheoryState extends Equatable{
 class UpdateTheory extends TheoryState{
   final ResponseTheoryDeatilStatus theory;
   UpdateTheory({required this.theory});
-  UpdateTheory.initial() : this(theory: ResponseTheoryDeatilStatus(data: [], theory: Theorys(id: 0,type: 0,status: 0,title: '',content: '',createdAt: '',updatedAt: '')));
+  UpdateTheory.initial() : this(theory: ResponseTheoryDeatilStatus(data: [], theory: Theorys()));
   @override
   List<Object> get props => [theory];
 }

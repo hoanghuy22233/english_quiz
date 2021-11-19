@@ -77,7 +77,7 @@ class MainDrawer extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          WidgetAvatar(url: state.infoUser.image,height: 60,width: 60,),
+                          WidgetAvatar(url: state.infoUser.image ?? ''),
                           AppValue.vSpaceTiny,
                           Container(
                             height: 20,

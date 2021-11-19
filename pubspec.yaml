@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  flutter_dotenv: ^5.0.2
+  flutter_dotenv: ^3.1.0
   flutter_bloc: ^7.0.0
   path_provider: ^2.0.1
   keyboard_dismisser: ^1.0.2

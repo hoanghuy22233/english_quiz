@@ -84,7 +84,7 @@ class AppValue {
   static String formatDateMonthYear(String dateString) => YEAR_MONTH_DAY.format(DateTime.parse(dateString));
 
 
-  static bool isIOS() => Platform.isIOS;
+  static bool isIOS() => Platform.isIOS ?? false;
 
   // if (Platform.isAndroid) {
   // // Android-specific code

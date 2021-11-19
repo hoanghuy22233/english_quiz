@@ -10,6 +10,6 @@ class CodeUser extends FormzInput<String, CodeUserValidationError> {
 
   @override
   CodeUserValidationError validator(String value) {
-    return _otpRegex.hasMatch(value) ? null : CodeUserValidationError.invalid;
+    return _otpRegex.hasMatch(value ?? '') ? null : CodeUserValidationError.invalid;
   }
 }

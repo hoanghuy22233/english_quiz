@@ -82,7 +82,6 @@ class _StatisticalScreenState extends State<StatisticalScreen> {
                                                   crossAxisAlignment: CrossAxisAlignment.center,
                                                   children: [
                                                     WidgetAvatar(
-                                                      height: 60,width: 60,
                                                         url: state.infoUser.image
                                                     ),
                                                     AppValue.vSpaceTiny,

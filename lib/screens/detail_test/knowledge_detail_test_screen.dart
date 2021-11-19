@@ -3,7 +3,6 @@ import 'package:english_quiz/bloc/result/result_bloc.dart';
 import 'package:english_quiz/bloc/test/test_bloc.dart';
 import 'package:english_quiz/screens/quiz/quiz_finished.dart';
 import 'package:english_quiz/widgets/bloc/bloc.dart';
-import 'package:english_quiz/widgets/quiz_options.dart';
 import 'package:english_quiz/widgets/widget_appbar_new.dart';
 import 'package:english_quiz/widgets/widget_count_down.dart';
 import 'package:english_quiz/widgets/widget_my_radio_group.dart';
@@ -69,7 +68,7 @@ class _KnowDetailTestScreenState extends State<KnowDetailTestScreen> with Ticker
           builder: (context, state){
             if(state is UpdateDetailQuestionsState){
               Questions question = state.question[_currentIndex];
-              final List<dynamic> options = question.incorrectAnswers;
+              final List<dynamic> options = question.incorrectAnswers!;
               if (!options.contains(question.answer)) {
                 options.add(question.answer);
                 options.shuffle();
@@ -171,15 +170,15 @@ class _KnowDetailTestScreenState extends State<KnowDetailTestScreen> with Ticker
                                     state.question[_currentIndex].title.length>=5?
                                     ExpandableText(
                                       HtmlUnescape().convert(
-                                          state.question[_currentIndex].title)+ " " + HtmlUnescape().convert(
-                                          state.question[_currentIndex].content),
+                                          state.question[_currentIndex].title!)+ " " + HtmlUnescape().convert(
+                                          state.question[_currentIndex].content!),
                                       expandText: 'Xem thêm',
                                       collapseText: 'Thu gọn',
                                       maxLines: 5,
                                       linkColor: Colors.blue,
                                     )
                                         :ExpandableText(
-                                      state.question[_currentIndex].content,
+                                      state.question[_currentIndex].content!,
                                       expandText: 'Xem thêm',
                                       collapseText: 'Thu gọn',
                                       maxLines: 5,
@@ -188,7 +187,7 @@ class _KnowDetailTestScreenState extends State<KnowDetailTestScreen> with Ticker
                                   ): Expanded(
                                     child: Text(
                                       HtmlUnescape().convert(
-                                          state.question[_currentIndex].title),
+                                          state.question[_currentIndex].title!),
                                       softWrap: true,
                                       style: MediaQuery.of(context).size.width > 800 ? _questionStyle.copyWith(fontSize: 30.0)
                                           : _questionStyle,

@@ -3,7 +3,6 @@ import 'package:english_quiz/bloc/statistics_detail/statistics_detail_bloc.dart'
 import 'package:english_quiz/controller/check_answers.dart';
 import 'package:english_quiz/controller/error.dart';
 import 'package:english_quiz/models/question.dart';
-import 'package:english_quiz/resources/api_provider.dart';
 import 'package:english_quiz/widgets/widget_button.dart';
 import 'package:english_quiz/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -106,7 +105,7 @@ class _StatisticalResultItemState extends State<StatisticalResultItem> {
                       child: ListTile(
                         contentPadding: const EdgeInsets.all(16.0),
                         title: Text("Số câu chính xác", style: titleStyle),
-                        trailing: Text(state.test.totalCorrect!, style: trailingStyle),
+                        trailing: Text(state.test.totalCorrect, style: trailingStyle),
                       ),
                     ),
                     SizedBox(height: 10.0),
@@ -117,7 +116,7 @@ class _StatisticalResultItemState extends State<StatisticalResultItem> {
                       child: ListTile(
                         contentPadding: const EdgeInsets.all(16.0),
                         title: Text("Số câu sai", style: titleStyle),
-                        trailing: Text(state.test.totalWrong!, style: trailingStyle),
+                        trailing: Text(state.test.totalWrong, style: trailingStyle),
                       ),
                     ),
                     AppValue.vSpaceSmall,

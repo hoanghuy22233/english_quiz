@@ -95,7 +95,7 @@ class CheckAnswersPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text('${index+1}. ' + HtmlUnescape().convert(question.title), style: AppStyle.DEFAULT_MEDIUM.copyWith(
+            Text('${index+1}. ' + HtmlUnescape().convert(question.title!), style: AppStyle.DEFAULT_MEDIUM.copyWith(
                 color: Colors.black,
                 fontWeight: FontWeight.w500),),
             SizedBox(height: 5.0),
@@ -108,7 +108,7 @@ class CheckAnswersPage extends StatelessWidget {
             correct ? Container(): Text.rich(TextSpan(
               children: [
                 TextSpan(text: "Đáp án: "),
-                TextSpan(text: HtmlUnescape().convert(question.answer) , style: AppStyle.DEFAULT_MEDIUM)
+                TextSpan(text: HtmlUnescape().convert(question.answer!) , style: AppStyle.DEFAULT_MEDIUM)
               ]
             ),style: AppStyle.DEFAULT_MEDIUM,),
             SizedBox(height: 5.0),

@@ -109,7 +109,7 @@ class _AccountInformationState extends State<AccountInformation> with SingleTick
                                                 children: [
                                                   Padding(
                                                     padding: EdgeInsets.only(left: 15),
-                                                    child: WidgetAvatar(url: user.image),
+                                                    child: WidgetAvatar(url: user.image ?? ''),
                                                   ),
                                                   Positioned(
                                                     bottom: 0,
@@ -129,15 +129,12 @@ class _AccountInformationState extends State<AccountInformation> with SingleTick
                                               crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                               children: [
-                                                // ignore: unnecessary_null_comparison
                                                 Text(user.name!= null ?
                                                   user.name.length > 25 ? '${user.name.substring(0, 25)} ...' :  user.name :
                                                   MESSAGES.NOT_SETUP, style: AppStyle.DEFAULT_MEDIUM_BOLD,
                                                 ),
                                                 Text(
-                                                  // ignore: unnecessary_null_comparison
-                                                  user.email!=null?
-                                                  user.email : MESSAGES.NOT_SETUP,
+                                                  user.email ?? MESSAGES.NOT_SETUP,
                                                   style: AppStyle.DEFAULT_MEDIUM
                                                       .copyWith(
                                                     color: COLORS.PRIMARY_COLOR,
@@ -158,7 +155,7 @@ class _AccountInformationState extends State<AccountInformation> with SingleTick
                                         _titleText(MESSAGES.CODE_LOGIN),
                                         AppValue.vSpaceTiny,
                                         _titleText(
-                                          user.code,
+                                          user.code ?? MESSAGES.NOT_SETUP,
                                           box: true,
                                         ),
                                         AppValue.vSpaceSmall,
@@ -198,7 +195,7 @@ class _AccountInformationState extends State<AccountInformation> with SingleTick
                                         _titleText(MESSAGES.PHONE),
                                         AppValue.vSpaceTiny,
                                         _titleText(
-                                          user.phone,
+                                          user.phone ?? MESSAGES.NOT_SETUP,
                                           box: true,
                                         ),
                                         // AppValue.vSpaceSmall,
@@ -212,7 +209,7 @@ class _AccountInformationState extends State<AccountInformation> with SingleTick
                                         _titleText(MESSAGES.ADDRESS),
                                         AppValue.vSpaceTiny,
                                         _titleText(
-                                            user.address!=null?user.address:MESSAGES.NOT_SETUP,
+                                            user.address ?? MESSAGES.NOT_SETUP,
                                             box: true,
                                             height: 90,
                                             maxLine: 2

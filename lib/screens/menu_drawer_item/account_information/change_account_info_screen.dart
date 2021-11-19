@@ -57,7 +57,7 @@ class _ChangeAccountInformationState extends State<ChangeAccountInformation> {
                                   Padding(
                                     padding: EdgeInsets.symmetric(horizontal: 15),
                                     child: WidgetInput(
-                                      initialValue: info.name,
+                                      initialValue: info.name ?? '',
                                       hint: MESSAGES.FULLNAME,
                                       errorText: username ? null : MESSAGES.NOT_EMPTY,
                                       onChanged: (value){
@@ -109,7 +109,7 @@ class _ChangeAccountInformationState extends State<ChangeAccountInformation> {
                                     padding:
                                         EdgeInsets.symmetric(horizontal: 15),
                                     child: WidgetInput(
-                                      initialValue: info.phone,
+                                      initialValue: info.phone ?? '',
                                       hint: MESSAGES.PHONE,
                                       onChanged: (value){
                                         blocProfile.add(ProfileChangedPhone(value));
@@ -152,7 +152,7 @@ class _ChangeAccountInformationState extends State<ChangeAccountInformation> {
                                       maxLine: 3,
                                       inputType: TextInputType.multiline,
                                       textInputAction: TextInputAction.newline,
-                                      initialValue: info.address,
+                                      initialValue: info.address ?? '',
                                       hint: MESSAGES.ADDRESS,
                                       errorText: address ? null : MESSAGES.NOT_EMPTY,
                                       onChanged: (value) {

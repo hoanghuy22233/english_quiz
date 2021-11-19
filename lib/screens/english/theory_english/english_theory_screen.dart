@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'dart:math';
 
-import 'package:english_quiz/bloc/Theory_container/theory_container_bloc.dart';
 import 'package:english_quiz/bloc/Theory_english/theory_english_bloc.dart';
 import 'package:english_quiz/screens/detail_pdf/pdf_screen.dart';
 import 'package:english_quiz/widgets/bloc/widget_bloc_theory_english.dart';
@@ -20,12 +19,6 @@ class EnglishTheoryScreen extends StatefulWidget {
 class _EnglishTheoryScreenState extends State<EnglishTheoryScreen> {
 
   @override
-  void initState() {
-    BlocProvider.of<TheoryContainerBloc>(context).add(InitTheoryContaineEvent(2));
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -35,37 +28,48 @@ class _EnglishTheoryScreenState extends State<EnglishTheoryScreen> {
           child: WidgetBackButton(),
         ),
         centerTitle: true,
-        title: Text(MESSAGES.NAME,  style: AppStyle.DEFAULT_MEDIUM.copyWith(
+        title: Text(MESSAGES.NAME, style: AppStyle.DEFAULT_MEDIUM.copyWith(
             color: Colors.white,
             fontWeight: FontWeight.bold)),
       ),
       body: SafeArea(
-        top: false,
-        child: BlocBuilder<TheoryContainerBloc, TheoryContainerState>(
-          builder: (context, state){
-            if(state is UpdateTheoryContainerState){
-              return Column(
-                children: [
-                  Expanded(
-                    child: RefreshIndicator(
-                      onRefresh: () async {
-                        TheoryContainerBloc.of(context)..add(InitTheoryContaineEvent(2));
-                        await Future.delayed(Duration(seconds: 2));
-                      },
-                      color: COLORS.WHITE,
-                      backgroundColor: COLORS.PRIMARY_COLOR,
-                      child: Container(
-                        color: Colors.grey[200],
-                        child: ListView.separated(
+        top: true,
+        child: Column(
+          children: [
+            // Stack(
+            //   children: [
+            //     Container(
+            //       height: 100,width: MediaQuery.of(context).size.width,
+            //     )
+            //   ],
+            // ),
+            Expanded(
+              child: RefreshIndicator(
+                onRefresh: () async {
+                  TheoryEnglishBloc.of(context)..add(InitTheoryEnglishEvent());
+                  await Future.delayed(Duration(seconds: 2));
+                },
+                color: COLORS.WHITE,
+                backgroundColor: COLORS.PRIMARY_COLOR,
+                child: Container(
+                  color: Colors.grey[200],
+                  child: WidgetTheoryEnglishBloc(
+                    bloc: TheoryEnglishBloc.of(context)..add(InitTheoryEnglishEvent()),
+                    blocTheory: (ResponseTheoryDeatilStatus theory) {
+                      final List<Theorys>? theorys = theory.data;
+                      if(theorys == null){ return TrailLoading(width: 100, height: 100);}
+                     else{
+                        return ListView.separated(
                           padding: const EdgeInsets.fromLTRB(0, 8.0, 0, 0),
-                          itemCount: state.theory.length,
+                          itemCount: theorys.length,
                           itemBuilder: (BuildContext context, int index) {
                             return InkWell(
                               onTap: (){
+                                Platform.isIOS? _openUrl(theorys[index].content):
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => PdfScreen(state.theory[index].content),
+                                      builder: (context) => PdfScreen(theorys[index].content),
                                     ));
                               },
                               child: Container(
@@ -102,7 +106,7 @@ class _EnglishTheoryScreenState extends State<EnglishTheoryScreen> {
                                             // color: Colors.white,
                                               width: MediaQuery.of(context).size.width,
                                               padding: EdgeInsets.all(22),
-                                              child: Text(state.theory[index].title,maxLines: 2, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)),
+                                              child: Text(theorys[index].title,maxLines: 2, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)),
                                         )
 
                                       ],
@@ -113,21 +117,23 @@ class _EnglishTheoryScreenState extends State<EnglishTheoryScreen> {
                             );
                           },
                           separatorBuilder: (BuildContext context, int index) => AppValue.vSpace(12),
-                        ),
-                      ),
-                    ),
+                        );
+                      }
+
+
+                    },
                   ),
-                ],
-              );
-            }else {
-              return Center(
-                child: TrailLoading(height: MediaQuery.of(context).size.width*0.2, width: MediaQuery.of(context).size.width*0.2),
-              );
-            }
-          },
-        ),
+                ),
+              ),
+            ),
+          ],
+        )
+
+
+
       ),
     );
+
   }
   _openUrl(String url) async {
     if (await canLaunch(url)) {
