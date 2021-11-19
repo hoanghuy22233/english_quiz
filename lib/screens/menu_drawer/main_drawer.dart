@@ -136,17 +136,36 @@ class MainDrawer extends StatelessWidget {
                 )
             ),
             AppValue.vSpaceTiny,
-            Center(
-              child: InkWell(
-                child: WidgetButton(
-                  onTap: () async => bloc.add(AuthenticationLogoutRequested()),
-                  backgroundColor: COLORS.RED,
-                  width: 150,
-                  height: 40,
-                  text: MESSAGES.LOG_OUT,
-                ),
-              ),
+            OrientationBuilder(
+              builder: (context, orientation) {
+                if (MediaQuery.of(context).size.width > 600) {
+                  return  Container(
+                    child: InkWell(
+                      child: WidgetButton(
+                        onTap: () async => bloc.add(AuthenticationLogoutRequested()),
+                        backgroundColor: COLORS.RED,
+                        width: 150,
+                        height: 40,
+                        text: MESSAGES.LOG_OUT,
+                      ),
+                    ),
+                  );
+                } else {
+                  return  Center(
+                    child: InkWell(
+                      child: WidgetButton(
+                        onTap: () async => bloc.add(AuthenticationLogoutRequested()),
+                        backgroundColor: COLORS.RED,
+                        width: 150,
+                        height: 40,
+                        text: MESSAGES.LOG_OUT,
+                      ),
+                    ),
+                  );
+                }
+              },
             ),
+
             AppValue.vSpaceTiny,
           ],
         ),

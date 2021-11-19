@@ -85,7 +85,7 @@ class _PdfScreenState extends State<PdfScreen> {
            PDFView(
         filePath: get,
              enableSwipe: true,
-           //  swipeHorizontal: true,
+             //  swipeHorizontal: true,
 
              autoSpacing: false,
              pageFling: true,

@@ -62,7 +62,7 @@ class _KnowMoneyScreenState extends State<KnowMoneyScreen> {
                         itemBuilder: (BuildContext context, int index) {
                           return InkWell(
                             onTap: (){
-                              Platform.isIOS? _openUrl(theorys[index].content):
+                             // Platform.isIOS? _openUrl(theorys[index].content):
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(

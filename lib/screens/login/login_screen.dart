@@ -24,9 +24,8 @@ class _LoginScreenState extends State<LoginScreen> {
         snackBar: SnackBar(
           content: Text(MESSAGES.BACK_TO_EXIT, style: AppStyle.DEFAULT_MEDIUM.copyWith(color: COLORS.WHITE),),
         ),
-        child: SafeArea(
-          child: WidgetTouchHideKeyBoard(
-            child: Container(
+        child: WidgetTouchHideKeyBoard(
+          child: Container(
               height: AppValue.heights,
               decoration: BoxDecoration(
                 gradient: new LinearGradient(
@@ -55,8 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               )
-            ),
-          )
+          ),
         ),
       ),
     );
