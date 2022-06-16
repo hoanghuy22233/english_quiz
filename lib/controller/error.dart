@@ -20,6 +20,7 @@ class ErrorPage extends StatelessWidget {
           gradient: LinearGradient(
             colors: [
               Theme.of(context).primaryColor,
+              // ignore: deprecated_member_use
               Theme.of(context).accentColor
             ],
             begin: Alignment.topCenter,
@@ -41,6 +42,7 @@ class ErrorPage extends StatelessWidget {
                       color: Colors.red
                     ),),
                     SizedBox(height: 20.0),
+                    // ignore: deprecated_member_use
                     RaisedButton(
                       child: Text("Thử lại"),
                       onPressed: ()=> Navigator.pop(context),

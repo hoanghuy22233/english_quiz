@@ -1,3 +1,4 @@
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:animated_drawer/views/animated_drawer.dart';
 import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:english_quiz/bloc/blocs.dart';

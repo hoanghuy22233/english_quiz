@@ -7,6 +7,7 @@ import 'package:device_info/device_info.dart';
 import 'package:english_quiz/bloc/blocs.dart';
 import 'package:english_quiz/widgets/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:utils_libs/utils_libs.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:community_material_icon/community_material_icon.dart';
@@ -36,6 +37,7 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
         context.read<LoginBloc>().add(PasswordUnfocused());
       }
     });
+
 
   }
 
@@ -176,7 +178,7 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
               AppValue.vSpaceSmall,
               _buildButtonLogin(bloc),
               AppValue.vSpaceSmall,
-              _buildButtonRegister(),
+            //  _buildButtonRegister(),
             ],
           ),
         ),
@@ -279,6 +281,7 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
 
 
 
+  // ignore: non_constant_identifier_names
   _Me(String url) async {
     // Android
     if (await canLaunch(url)) {

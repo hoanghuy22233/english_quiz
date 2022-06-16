@@ -2,10 +2,10 @@ import 'dart:math';
 
 import 'package:english_quiz/bloc/Statistics/statistics_bloc.dart';
 import 'package:english_quiz/bloc/blocs.dart';
-import 'package:english_quiz/bloc/test/test_bloc.dart';
 import 'package:english_quiz/widgets/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:utils_libs/utils_libs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -63,7 +63,6 @@ class _StatisticalScreenState extends State<StatisticalScreen> {
                                 bloc: InfoUserBloc.of(context)..add(InitDataEvent()),
                                 builder: (context, state) {
                                   if (state is UpdateInfoUserState) {
-                                    final user = state.infoUser;
                                     return  Container(
                                       height: 170,
                                       padding: EdgeInsets.all(10),

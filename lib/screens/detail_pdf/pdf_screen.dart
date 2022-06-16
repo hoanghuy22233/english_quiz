@@ -1,13 +1,10 @@
 import 'dart:async';
 import 'dart:io';
-import 'dart:math';
 import 'package:english_quiz/widgets/widgets.dart';
 import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:utils_libs/utils_libs.dart'; // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 
 
@@ -85,7 +82,7 @@ class _PdfScreenState extends State<PdfScreen> {
            PDFView(
         filePath: get,
              enableSwipe: true,
-           //  swipeHorizontal: true,
+             //  swipeHorizontal: true,
 
              autoSpacing: false,
              pageFling: true,

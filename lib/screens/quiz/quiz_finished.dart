@@ -1,9 +1,10 @@
 import 'package:english_quiz/controller/check_answers.dart';
-import 'package:english_quiz/models/question.dart';
 import 'package:english_quiz/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:utils_libs/utils_libs.dart';
 
+// ignore: must_be_immutable
 class QuizFinishedPage extends StatelessWidget {
   final List<Questions>? questions;
   final Map<int, dynamic>? answers;
@@ -49,6 +50,7 @@ class QuizFinishedPage extends StatelessWidget {
           gradient: LinearGradient(
             colors: [
               Theme.of(context).primaryColor,
+              // ignore: deprecated_member_use
               Theme.of(context).accentColor
             ],
             begin: Alignment.topCenter,
@@ -106,6 +108,7 @@ class QuizFinishedPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
+                  // ignore: deprecated_member_use
                   RaisedButton(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
                     shape: RoundedRectangleBorder(
@@ -115,6 +118,7 @@ class QuizFinishedPage extends StatelessWidget {
                     child: Text("Về trang chủ",style: TextStyle(color: Colors.blue)),
                     onPressed: ()  => AppNavigator.navigateMain(),
                   ),
+                  // ignore: deprecated_member_use
                   RaisedButton(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
                     shape: RoundedRectangleBorder(

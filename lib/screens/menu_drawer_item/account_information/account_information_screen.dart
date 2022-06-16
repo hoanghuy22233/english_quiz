@@ -1,6 +1,5 @@
 import 'dart:io'; // ignore: import_of_legacy_library_into_null_safe
 import 'package:english_quiz/bloc/blocs.dart';
-import 'package:english_quiz/screens/screens.dart';
 import 'package:english_quiz/widgets/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:image_picker/image_picker.dart'; // ignore: import_of_legacy_library_into_null_safe
@@ -10,7 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
-import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv; // ignore: import_of_legacy_library_into_null_safe
 
 class AccountInformation extends StatefulWidget {
   @override

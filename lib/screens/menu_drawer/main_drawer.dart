@@ -4,11 +4,11 @@ import 'package:english_quiz/widgets/widgets.dart';
 import 'package:english_quiz/screens/screens.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:utils_libs/utils_libs.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart'; // ignore: import_of_legacy_library_into_null_safe
-import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv; // ignore: import_of_legacy_library_into_null_safe
 
 class MainDrawer extends StatelessWidget {
   final Function? onPress;
@@ -136,17 +136,36 @@ class MainDrawer extends StatelessWidget {
                 )
             ),
             AppValue.vSpaceTiny,
-            Center(
-              child: InkWell(
-                child: WidgetButton(
-                  onTap: () async => bloc.add(AuthenticationLogoutRequested()),
-                  backgroundColor: COLORS.RED,
-                  width: 150,
-                  height: 40,
-                  text: MESSAGES.LOG_OUT,
-                ),
-              ),
+            OrientationBuilder(
+              builder: (context, orientation) {
+                if (MediaQuery.of(context).size.width > 600) {
+                  return  Container(
+                    child: InkWell(
+                      child: WidgetButton(
+                        onTap: () async => bloc.add(AuthenticationLogoutRequested()),
+                        backgroundColor: COLORS.RED,
+                        width: 150,
+                        height: 40,
+                        text: MESSAGES.LOG_OUT,
+                      ),
+                    ),
+                  );
+                } else {
+                  return  Center(
+                    child: InkWell(
+                      child: WidgetButton(
+                        onTap: () async => bloc.add(AuthenticationLogoutRequested()),
+                        backgroundColor: COLORS.RED,
+                        width: 150,
+                        height: 40,
+                        text: MESSAGES.LOG_OUT,
+                      ),
+                    ),
+                  );
+                }
+              },
             ),
+
             AppValue.vSpaceTiny,
           ],
         ),

@@ -1,5 +1,4 @@
 // ignore: import_of_legacy_library_into_null_safe
-import 'package:english_quiz/storages/share_local.dart';
 import 'package:utils_libs/utils_libs.dart' show BASE_URL, PreferencesKey;
 import 'package:dio/dio.dart' show Dio, LogInterceptor; // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv; // ignore: import_of_legacy_library_into_null_safe

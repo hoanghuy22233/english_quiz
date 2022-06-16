@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:utils_libs/utils_libs.dart';
 
 part 'questions.g.dart';
 

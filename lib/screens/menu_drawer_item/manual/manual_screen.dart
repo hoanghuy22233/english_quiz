@@ -3,6 +3,7 @@ import 'package:english_quiz/bloc/blocs.dart';
 import 'package:english_quiz/widgets/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:utils_libs/utils_libs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

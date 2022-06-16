@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:utils_libs/src/models/index.dart';
 part 'params_change_password.g.dart';
 @JsonSerializable()
 class ParamChangePassword {

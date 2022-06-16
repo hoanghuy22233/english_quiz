@@ -1,14 +1,11 @@
-import 'package:english_quiz/bloc/Statistics/statistics_bloc.dart';
+
 import 'package:english_quiz/bloc/statistics_detail/statistics_detail_bloc.dart';
-import 'package:english_quiz/controller/check_answers.dart';
-import 'package:english_quiz/controller/error.dart';
 import 'package:english_quiz/models/question.dart';
-import 'package:english_quiz/resources/api_provider.dart';
-import 'package:english_quiz/widgets/widget_button.dart';
 import 'package:english_quiz/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:utils_libs/utils_libs.dart';
 
 // ignore: must_be_immutable
@@ -24,7 +21,6 @@ class _StatisticalResultItemState extends State<StatisticalResultItem> {
   final questions = Get.arguments;
 
   List<Question> listQuestions = [];
-  final Map<int, dynamic> _answers = {};
 
   @override
   void initState() {
@@ -67,6 +63,7 @@ class _StatisticalResultItemState extends State<StatisticalResultItem> {
                   gradient: LinearGradient(
                       colors: [
                         Theme.of(context).primaryColor,
+                        // ignore: deprecated_member_use
                         Theme.of(context).accentColor
                       ],
                       begin: Alignment.topCenter,

@@ -1,7 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:utils_libs/src/models/model_generator/test.dart';
-import 'package:utils_libs/src/models/model_generator/theory.dart';
 import 'package:utils_libs/utils_libs.dart';
 part 'response_detail_question.g.dart';
 @JsonSerializable()
@@ -16,6 +14,7 @@ class ResponseDetailQuestion {
 }
 
 @JsonSerializable()
+// ignore: camel_case_types, must_be_immutable
 class detailData extends Equatable {
   @JsonKey(name:"questions_1" )
 

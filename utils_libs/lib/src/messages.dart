@@ -118,6 +118,7 @@ class MESSAGES {
   static const String CONNECT_ERROR = 'Có lỗi xảy ra. Vui lòng thử lại!';
   static const String DEVICE_ERROR = 'Bạn đã đăng kí sử dụng tài khoản này trên thiết bị ';
   static const String DEVICE_ERROR_SUB = 'Vui lòng sử dụng thiết bị cũ hoặc liên hệ Ban quản trị App\nSĐT Hỗ trợ: (024)23.225.999 \n Zalo Hỗ trợ: 0902.183.658';
+  static const String CONTACT = 'Liên hệ với admin để được cấp tài khoản.\nSĐT:0902.183.658';
   static const String TRY_AGAIN = 'Vui lòng thử lại sau!';
   static const String TRY = 'Thử lại';
 }

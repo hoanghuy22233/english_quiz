@@ -1,15 +1,10 @@
 import 'package:english_quiz/bloc/detail_question/detail_question_bloc.dart';
 import 'package:english_quiz/bloc/result/result_bloc.dart';
-import 'package:english_quiz/bloc/test/test_bloc.dart';
 import 'package:english_quiz/screens/quiz/quiz_finished.dart';
-import 'package:english_quiz/widgets/bloc/bloc.dart';
-import 'package:english_quiz/widgets/widget_appbar_new.dart';
 import 'package:english_quiz/widgets/widget_count_down.dart';
 import 'package:english_quiz/widgets/widget_my_radio_group.dart';
-import 'package:english_quiz/widgets/widgets.dart';
 import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:html_unescape/html_unescape.dart';
 import 'package:utils_libs/utils_libs.dart'; // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter/material.dart';
@@ -251,6 +246,7 @@ class _KnowDetailTestScreenState extends State<KnowDetailTestScreen> with Ticker
                       Container(
                         width: MediaQuery.of(context).size.width/3.1,
                         height: MediaQuery.of(context).size.width*0.15,
+                        // ignore: deprecated_member_use
                         child: RaisedButton(
                           color: Colors.blue,
                           padding: MediaQuery.of(context).size.width > 800
@@ -274,6 +270,7 @@ class _KnowDetailTestScreenState extends State<KnowDetailTestScreen> with Ticker
                       Container(
                         width: MediaQuery.of(context).size.width/3.1,
                         height: MediaQuery.of(context).size.width*0.15,
+                        // ignore: deprecated_member_use
                         child: RaisedButton(
                           color: Colors.blue,
                           padding: MediaQuery.of(context).size.width > 800
@@ -299,6 +296,7 @@ class _KnowDetailTestScreenState extends State<KnowDetailTestScreen> with Ticker
                       Container(
                         width: MediaQuery.of(context).size.width/3.1,
                         height: MediaQuery.of(context).size.width*0.15,
+                        // ignore: deprecated_member_use
                         child: RaisedButton(
                           color: Colors.blue,
                           padding: MediaQuery.of(context).size.width > 800

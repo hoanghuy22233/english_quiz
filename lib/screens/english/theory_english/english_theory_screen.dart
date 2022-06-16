@@ -1,12 +1,9 @@
-import 'dart:io';
 import 'dart:math';
 
 import 'package:english_quiz/bloc/Theory_english/theory_english_bloc.dart';
 import 'package:english_quiz/screens/detail_pdf/pdf_screen.dart';
 import 'package:english_quiz/widgets/bloc/widget_bloc_theory_english.dart';
 import 'package:english_quiz/widgets/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:utils_libs/utils_libs.dart'; // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter/material.dart';
 
@@ -65,7 +62,7 @@ class _EnglishTheoryScreenState extends State<EnglishTheoryScreen> {
                           itemBuilder: (BuildContext context, int index) {
                             return InkWell(
                               onTap: (){
-                                Platform.isIOS? _openUrl(theorys[index].content):
+                              //  Platform.isIOS? _openUrl(theorys[index].content):
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
@@ -134,13 +131,6 @@ class _EnglishTheoryScreenState extends State<EnglishTheoryScreen> {
       ),
     );
 
-  }
-  _openUrl(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
   }
 
 

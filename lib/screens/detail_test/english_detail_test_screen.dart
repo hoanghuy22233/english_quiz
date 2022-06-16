@@ -285,6 +285,7 @@ class _EnglishDetailTestScreenState extends State<EnglishDetailTestScreen>
                         Container(
                           width: MediaQuery.of(context).size.width / 3.1,
                           height: MediaQuery.of(context).size.width * 0.15,
+                          // ignore: deprecated_member_use
                           child: RaisedButton(
                             color: Colors.blue,
                             padding: MediaQuery.of(context).size.width > 800
@@ -310,6 +311,7 @@ class _EnglishDetailTestScreenState extends State<EnglishDetailTestScreen>
                         Container(
                           width: MediaQuery.of(context).size.width / 3.1,
                           height: MediaQuery.of(context).size.width * 0.15,
+                          // ignore: deprecated_member_use
                           child: RaisedButton(
                             color: Colors.blue,
                             padding: MediaQuery.of(context).size.width > 800
@@ -337,6 +339,7 @@ class _EnglishDetailTestScreenState extends State<EnglishDetailTestScreen>
                         Container(
                           width: MediaQuery.of(context).size.width / 3.1,
                           height: MediaQuery.of(context).size.width * 0.15,
+                          // ignore: deprecated_member_use
                           child: RaisedButton(
                             color: Colors.blue,
                             padding: MediaQuery.of(context).size.width > 800

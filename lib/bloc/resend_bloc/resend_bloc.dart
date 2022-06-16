@@ -2,8 +2,8 @@ import 'dart:async';
 import 'package:english_quiz/api_resfull/user_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 import 'package:quiver/async.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:utils_libs/utils_libs.dart';
 
 part 'resend_event.dart';
@@ -15,7 +15,6 @@ class ResendOTPBloc extends Bloc<ResendOTPEvent, ResendOTPState> {
   ResendOTPBloc({required this.userRepository}): super(ResendOTPState.empty());
 
 
-  @override
   ResendOTPState get initialState => ResendOTPState.empty();
 
   @override

@@ -1,6 +1,7 @@
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:english_quiz/widgets/widgets.dart';
-import 'package:utils_libs/utils_libs.dart' show AppNavigator, COLORS;
+// ignore: import_of_legacy_library_into_null_safe
+import 'package:utils_libs/utils_libs.dart' show COLORS;
 import 'package:flutter/material.dart';
 
 class WidgetBarNew extends StatelessWidget {

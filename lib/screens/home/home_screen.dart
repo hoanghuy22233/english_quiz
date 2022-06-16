@@ -1,7 +1,5 @@
 // ignore: import_of_legacy_library_into_null_safe
-import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:english_quiz/screens/screens.dart';
-import 'package:english_quiz/widgets/widgets.dart';
 import 'package:utils_libs/utils_libs.dart'; // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter/material.dart';
 

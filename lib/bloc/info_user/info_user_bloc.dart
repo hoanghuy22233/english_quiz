@@ -1,7 +1,7 @@
 import 'package:english_quiz/api_resfull/user_repository.dart';
 import 'package:english_quiz/bloc/blocs.dart';
 import 'package:english_quiz/storages/storages.dart';
-import 'package:utils_libs/utils_libs.dart' show BASE_URL, DataUser, GetSnackBarUtils, InfoUser, MESSAGES, PreferencesKey, User; // ignore: import_of_legacy_library_into_null_safe
+import 'package:utils_libs/utils_libs.dart' show BASE_URL, DataUser, InfoUser; // ignore: import_of_legacy_library_into_null_safe
 import 'dart:io';
 import 'dart:convert';
 import 'package:equatable/equatable.dart';

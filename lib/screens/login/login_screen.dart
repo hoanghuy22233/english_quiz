@@ -3,6 +3,7 @@ import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:english_quiz/screens/login/index.dart';
 import 'package:english_quiz/screens/screens.dart';
 import 'package:english_quiz/widgets/widgets.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:utils_libs/utils_libs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -17,6 +18,35 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   @override
+
+  @override
+  void initState() {
+    super.initState();
+    // new Future.delayed(Duration.zero, () {
+    //   showDialog(
+    //     context: context,
+    //     builder: (BuildContext context) {
+    //       return WidgetDialog(
+    //         title: MESSAGES.NOTIFICATION,
+    //         content: MESSAGES.CONTACT,
+    //         onTap1: () => AppNavigator.navigateBack(),
+    //       );
+    //     },
+    //   );
+    // });
+
+
+  }
+
+  Future doThings() async {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return WidgetDialogDeveloping();
+      },
+    );
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       drawerEnableOpenDragGesture: false,
@@ -24,9 +54,8 @@ class _LoginScreenState extends State<LoginScreen> {
         snackBar: SnackBar(
           content: Text(MESSAGES.BACK_TO_EXIT, style: AppStyle.DEFAULT_MEDIUM.copyWith(color: COLORS.WHITE),),
         ),
-        child: SafeArea(
-          child: WidgetTouchHideKeyBoard(
-            child: Container(
+        child: WidgetTouchHideKeyBoard(
+          child: Container(
               height: AppValue.heights,
               decoration: BoxDecoration(
                 gradient: new LinearGradient(
@@ -55,8 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               )
-            ),
-          )
+          ),
         ),
       ),
     );

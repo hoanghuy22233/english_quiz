@@ -1,4 +1,5 @@
 import 'package:english_quiz/storages/share_local.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:utils_libs/utils_libs.dart';
 import 'dart:async';
 import 'package:bloc/bloc.dart';
@@ -49,7 +50,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       try {
         final code = state.infoUser!.code;
         final email = state.infoUser!.email;
-        final type = state.infoUser!.type;
         final name = state.infoUser!.name;
 
         final response = await _userRepository!.postImage(file: event.avatar, code: code, email: email, name: name);

@@ -1,11 +1,9 @@
-import 'dart:io';
 import 'dart:math';
 
 import 'package:english_quiz/bloc/Theory/theory_bloc.dart';
 import 'package:english_quiz/screens/detail_pdf/pdf_screen.dart';
 import 'package:english_quiz/widgets/bloc/widget_bloc_theory.dart';
 import 'package:english_quiz/widgets/widgets.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:utils_libs/utils_libs.dart'; // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter/material.dart';
 
@@ -55,7 +53,7 @@ class _KnowledgeTheoryScreenState extends State<KnowledgeTheoryScreen> {
                         itemBuilder: (BuildContext context, int index) {
                           return InkWell(
                             onTap: (){
-                              Platform.isIOS? _openUrl(theorys[index].content):
+                          //    Platform.isIOS? _openUrl(theorys[index].content):
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -122,13 +120,6 @@ class _KnowledgeTheoryScreenState extends State<KnowledgeTheoryScreen> {
 
   }
 
-  _openUrl(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
   
 
 }

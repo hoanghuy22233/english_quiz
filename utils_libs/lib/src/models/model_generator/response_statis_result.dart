@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:utils_libs/utils_libs.dart';
 part 'response_statis_result.g.dart';
 
 @JsonSerializable()

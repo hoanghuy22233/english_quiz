@@ -1,8 +1,7 @@
-import 'package:english_quiz/models/question.dart';
 import 'package:english_quiz/widgets/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:html_unescape/html_unescape.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:utils_libs/utils_libs.dart';
 
 class CheckAnswersPage extends StatelessWidget {
@@ -72,6 +71,7 @@ class CheckAnswersPage extends StatelessWidget {
   }
   Widget _buildItem(BuildContext context, int index) {
     if(index == questions!.length) {
+      // ignore: deprecated_member_use
       return RaisedButton(
         child: Text("Quay lại", style: TextStyle(color:Colors.white,),),
         shape:RoundedRectangleBorder(

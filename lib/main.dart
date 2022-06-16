@@ -24,7 +24,6 @@ import 'package:get/get.dart';
 import 'package:utils_libs/utils_libs.dart';
 import 'package:english_quiz/screens/screens.dart';
 import 'package:english_quiz/storages/storages.dart';
-import 'package:english_quiz/widgets/widgets.dart';
 import 'api_resfull/api.dart';
 import 'bloc/blocs.dart';
 import 'bloc/simple_bloc_observer.dart';

@@ -2,8 +2,9 @@
 import 'package:english_quiz/api_resfull/api.dart';
 import 'package:english_quiz/storages/event_repository_storage.dart';
 import 'package:english_quiz/storages/share_local.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:utils_libs/utils_libs.dart';
-import 'dart:async';
+import 'dart:async' show Stream;
 import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
