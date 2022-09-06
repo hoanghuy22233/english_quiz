@@ -49,9 +49,6 @@ dependencies:
   flutter_pdfview: ^1.0.0+10
   image_picker: ^0.6.2+3
 
-#dependency_overrides:
-#  sqflite: 2.0.0+3
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
